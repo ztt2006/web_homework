@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>赵雨晨的摄影作品集</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/portfolio.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="header">
+        <div class="logo">📸 赵雨晨的光影集</div>
+        <nav class="nav">
+            <a href="index.html" class="nav-link">首页</a>
+            <a href="portfolio.html" class="nav-link active">作品集</a>
+            <a href="about.html" class="nav-link">关于我</a>
+        </nav>
+    </header>
+
+    <!-- 作品集介绍 -->
+    <section class="portfolio-hero">
+        <div class="container">
+            <h1>光影瞬间</h1>
+            <p>每一张照片都是一个故事，一次对话，一段时光的凝结</p>
+            <div class="aperture-icon">
+                <div class="aperture-blade"></div>
+                <div class="aperture-blade"></div>
+                <div class="aperture-blade"></div>
+                <div class="aperture-blade"></div>
+                <div class="aperture-blade"></div>
+                <div class="aperture-blade"></div>
+            </div>
+        </div>
+        <div class="hero-overlay"></div>
+    </section>
+
+    <!-- 作品分类 -->
+    <section class="filter-section">
+        <div class="container">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">全部作品</button>
+                <button class="filter-btn" data-filter="nature">自然风光</button>
+                <button class="filter-btn" data-filter="architecture">建筑空间</button>
+                <button class="filter-btn" data-filter="portrait">人文纪实</button>
+                <button class="filter-btn" data-filter="street">街头随拍</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 作品展示区 -->
+    <section class="gallery">
+        <div class="photo-item" data-category="nature">
+            <div class="photo-frame">
+                <img src="images/黄山.png" alt="晨雾中的黄山" class="photo-img">
+                <div class="photo-overlay">
+                    <div class="zoom-icon">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                    <div class="photo-info">
+                        <span class="category">自然风光</span>
+                        <span class="date">2024.04</span>
+                    </div>
+                </div>
+            </div>
+            <div class="photo-desc">
+                <h3>《晨雾·山语》</h3>
+                <p class="location"><i class="fas fa-map-marker-alt"></i> 安徽黄山</p>
+                <p class="inspiration">凌晨四点登顶，等待第一缕阳光穿透晨雾。山影在薄雾中若隐若现，像一幅未干的水墨。</p>
+                <p class="message">想传达：自然的静谧与时间的流动——雾气会散，但此刻的美永远留在镜头里。</p>
+                <div class="photo-meta">
+                    <span><i class="fas fa-camera"></i> Nikon Z7</span>
+                    <span><i class="fas fa-sliders-h"></i> f/8, 1/125s, ISO 100</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="photo-item" data-category="architecture">
+            <div class="photo-frame">
+                <img src="images/苏州园林.jpeg" alt="苏州园林" class="photo-img">
+                <div class="photo-overlay">
+                    <div class="zoom-icon">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                    <div class="photo-info">
+                        <span class="category">建筑空间</span>
+                        <span class="date">2023.10</span>
+                    </div>
+                </div>
+            </div>
+            <div class="photo-desc">
+                <h3>《园林·框景》</h3>
+                <p class="location"><i class="fas fa-map-marker-alt"></i> 苏州拙政园</p>
+                <p class="inspiration">传统园林的「框景」艺术——通过漏窗、门洞将自然框成画。</p>
+                <p class="message">想传达：古人的审美智慧，一窗一景皆成诗。</p>
+                <div class="photo-meta">
+                    <span><i class="fas fa-camera"></i> Sony A7R IV</span>
+                    <span><i class="fas fa-sliders-h"></i> f/5.6, 1/160s, ISO 200</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="photo-item" data-category="portrait">
+            <div class="photo-frame">
+                <img src="images/泉州西街.jpg" alt="老街手艺人" class="photo-img">
+                <div class="photo-overlay">
+                    <div class="zoom-icon">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                    <div class="photo-info">
+                        <span class="category">人文纪实</span>
+                        <span class="date">2024.02</span>
+                    </div>
+                </div>
+            </div>
+            <div class="photo-desc">
+                <h3>《匠·心》</h3>
+                <p class="location"><i class="fas fa-map-marker-alt"></i> 泉州西街</p>
+                <p class="inspiration">80岁的木雕师傅专注雕刻的侧影，皱纹里藏着几十年的故事。</p>
+                <p class="message">想传达：手艺人的坚守——机器可以复制，但温度只能由双手传递。</p>
+                <div class="photo-meta">
+                    <span><i class="fas fa-camera"></i> Fujifilm X-T4</span>
+                    <span><i class="fas fa-sliders-h"></i> f/2.8, 1/100s, ISO 400</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="photo-item" data-category="street">
+            <div class="photo-frame">
+                <img src="images/上海田子坊.jpeg" alt="雨巷漫步" class="photo-img">
+                <div class="photo-overlay">
+                    <div class="zoom-icon">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                    <div class="photo-info">
+                        <span class="category">街头随拍</span>
+                        <span class="date">2023.12</span>
+                    </div>
+                </div>
+            </div>
+            <div class="photo-desc">
+                <h3>《雨巷漫步》</h3>
+                <p class="location"><i class="fas fa-map-marker-alt"></i> 上海田子坊</p>
+                <p class="inspiration">雨后的石板路上，伞与倒影构成了一幅城市水墨。偶然捕捉到一位老人漫步的背影。</p>
+                <p class="message">想传达：城市的孤独与诗意，繁华背后的宁静瞬间。</p>
+                <div class="photo-meta">
+                    <span><i class="fas fa-camera"></i> Leica Q2</span>
+                    <span><i class="fas fa-sliders-h"></i> f/2, 1/250s, ISO 800</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="photo-item" data-category="nature">
+            <div class="photo-frame">
+                <img src="images/天门山.jpeg" alt="云海日出" class="photo-img">
+                <div class="photo-overlay">
+                    <div class="zoom-icon">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                    <div class="photo-info">
+                        <span class="category">自然风光</span>
+                        <span class="date">2024.01</span>
+                    </div>
+                </div>
+            </div>
+            <div class="photo-desc">
+                <h3>《云上日出》</h3>
+                <p class="location"><i class="fas fa-map-marker-alt"></i> 张家界天门山</p>
+                <p class="inspiration">凌晨三点半起床，爬上山顶等待。当第一抹阳光洒在云海上，仿佛整个世界都镀上了金色。</p>
+                <p class="message">想传达：耐心等待的价值，大自然最壮观的时刻往往短暂而珍贵。</p>
+                <div class="photo-meta">
+                    <span><i class="fas fa-camera"></i> Canon EOS R5</span>
+                    <span><i class="fas fa-sliders-h"></i> f/11, 1/60s, ISO 100</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="photo-item" data-category="architecture">
+            <div class="photo-frame">
+                <img src="images/北京三里屯.jpg" alt="现代建筑" class="photo-img">
+                <div class="photo-overlay">
+                    <div class="zoom-icon">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                    <div class="photo-info">
+                        <span class="category">建筑空间</span>
+                        <span class="date">2023.11</span>
+                    </div>
+                </div>
+            </div>
+            <div class="photo-desc">
+                <h3>《几何·光影》</h3>
+                <p class="location"><i class="fas fa-map-marker-alt"></i> 北京三里屯SOHO</p>
+                <p class="inspiration">现代建筑的几何美学，阳光透过玻璃幕墙形成的光影变幻。</p>
+                <p class="message">想传达：现代都市的冷峻与流动，建筑不仅是空间，更是凝固的音乐。</p>
+                <div class="photo-meta">
+                    <span><i class="fas fa-camera"></i> Sony A7R IV</span>
+                    <span><i class="fas fa-sliders-h"></i> f/8, 1/200s, ISO 100</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 图片放大查看器 -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <img src="" alt="" id="lightbox-img">
+            <div class="lightbox-caption"></div>
+            <button class="lightbox-close">&times;</button>
+            <button class="lightbox-prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="lightbox-next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+
+    <!-- 返回顶部按钮 -->
+    <button class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo">📸 赵雨晨的光影集</div>
+                    <p>用光和影诉说故事，用镜头定格时间</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 赵雨晨的光影集 | 所有图片版权所有</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 分类筛选功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const photoItems = document.querySelectorAll('.photo-item');
+            
+            // 筛选功能
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // 移除所有按钮的active类
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // 当前按钮添加active类
+                    this.classList.add('active');
+                    
+                    const filter = this.dataset.filter;
+                    
+                    photoItems.forEach(item => {
+                        if (filter === 'all' || item.dataset.category === filter) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // 灯箱效果
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxCaption = document.querySelector('.lightbox-caption');
+            const zoomIcons = document.querySelectorAll('.zoom-icon');
+            
+            // 打开灯箱
+            zoomIcons.forEach((icon, index) => {
+                icon.addEventListener('click', function() {
+                    const imgSrc = this.closest('.photo-frame').querySelector('img').src;
+                    const imgAlt = this.closest('.photo-frame').querySelector('img').alt;
+                    const imgTitle = this.closest('.photo-item').querySelector('h3').textContent;
+                    
+                    lightboxImg.src = imgSrc;
+                    lightboxImg.alt = imgAlt;
+                    lightboxCaption.textContent = imgTitle;
+                    lightbox.style.display = 'flex';
+                    
+                    // 设置当前索引
+                    lightbox.dataset.currentIndex = index;
+                });
+            });
+            
+            // 关闭灯箱
+            document.querySelector('.lightbox-close').addEventListener('click', function() {
+                lightbox.style.display = 'none';
+            });
+            
+            // 点击灯箱背景关闭
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) {
+                    lightbox.style.display = 'none';
+                }
+            });
+            
+            // 下一张图片
+            document.querySelector('.lightbox-next').addEventListener('click', function() {
+                let currentIndex = parseInt(lightbox.dataset.currentIndex);
+                currentIndex = (currentIndex + 1) % photoItems.length;
+                updateLightbox(currentIndex);
+            });
+            
+            // 上一张图片
+            document.querySelector('.lightbox-prev').addEventListener('click', function() {
+                let currentIndex = parseInt(lightbox.dataset.currentIndex);
+                currentIndex = (currentIndex - 1 + photoItems.length) % photoItems.length;
+                updateLightbox(currentIndex);
+            });
+            
+            function updateLightbox(index) {
+                const imgSrc = photoItems[index].querySelector('.photo-img').src;
+                const imgAlt = photoItems[index].querySelector('.photo-img').alt;
+                const imgTitle = photoItems[index].querySelector('h3').textContent;
+                
+                lightboxImg.src = imgSrc;
+                lightboxImg.alt = imgAlt;
+                lightboxCaption.textContent = imgTitle;
+                lightbox.dataset.currentIndex = index;
+            }
+            
+            // 返回顶部按钮
+            const backToTopButton = document.querySelector('.back-to-top');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('show');
+                } else {
+                    backToTopButton.classList.remove('show');
+                }
+            });
+            
+            backToTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

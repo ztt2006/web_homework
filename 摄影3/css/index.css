@@ -1,0 +1,856 @@
+/* 首页特有样式 - 现代摄影主题 */
+
+/* 基础设置 */
+:root {
+    --primary: #101010;
+    --secondary: #1e1e1e;
+    --accent: #f05f40;
+    --text-light: #ffffff;
+    --text-dark: #101010;
+    --text-gray: #888888;
+    --gradient: linear-gradient(135deg, #f05f40 0%, #e83e8c 100%);
+    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  
+  body {
+    background-color: #111;
+    color: var(--text-light);
+    font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+  }
+  
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  /* 通用按钮样式 */
+  .btn {
+    display: inline-block;
+    background: var(--gradient);
+    color: white;
+    padding: 12px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 14px;
+    box-shadow: 0 4px 15px rgba(240, 95, 64, 0.2);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+  
+  .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(240, 95, 64, 0.3);
+  }
+  
+  .btn::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: -1;
+    transform: scale(0);
+    transition: transform 0.5s ease;
+  }
+  
+  .btn:hover::after {
+    transform: scale(1);
+  }
+  
+  /* 导航栏样式 */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: rgba(16, 16, 16, 0.95);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+    transition: padding 0.3s ease;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+    letter-spacing: 1px;
+  }
+  
+  .nav {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .nav-link {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: var(--transition);
+    position: relative;
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background: var(--gradient);
+    transition: width 0.3s ease;
+  }
+  
+  .nav-link:hover, .nav-link.active {
+    color: white;
+  }
+  
+  .nav-link:hover::after, .nav-link.active::after {
+    width: 100%;
+  }
+  
+  /* 英雄区域 */
+  .hero {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+    background: url('../images/hero-bg.jpg') center/cover no-repeat;
+    background-attachment: fixed;
+    color: white;
+    margin-top: 0;
+    overflow: hidden;
+  }
+  
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
+    z-index: 1;
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+  }
+  
+  .hero h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    position: relative;
+    animation: fadeInUp 1s ease forwards;
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+    line-height: 1.6;
+    animation: fadeInUp 1s ease 0.3s forwards;
+    opacity: 0;
+  }
+  
+  .hero .btn {
+    animation: fadeInUp 1s ease 0.6s forwards;
+    opacity: 0;
+  }
+  
+  /* 故障艺术文字效果 */
+  .glitch {
+    position: relative;
+    text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+                -0.025em -0.05em 0 rgba(0, 255, 0, 0.75),
+                0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+    animation: glitch 2s infinite;
+  }
+  
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    clip: rect(0, 0, 0, 0);
+  }
+  
+  .glitch::before {
+    left: 2px;
+    text-shadow: -1px 0 #f05f40;
+    animation: glitch-anim 2s infinite linear alternate-reverse;
+  }
+  
+  .glitch::after {
+    left: -2px;
+    text-shadow: -1px 0 #3498db;
+    animation: glitch-anim2 3s infinite linear alternate-reverse;
+  }
+  
+  /* 个人资料区域 */
+  .profile-section {
+    padding: 100px 0;
+    background-color: #151515;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .profile-section::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(rgba(240, 95, 64, 0.2), transparent 70%);
+    z-index: 0;
+  }
+  
+  .profile-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 50px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .profile-image {
+    flex: 1;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    overflow: hidden;
+    max-width: 400px;
+  }
+  
+  .profile-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+    filter: grayscale(20%);
+  }
+  
+  .profile-image:hover img {
+    transform: scale(1.05);
+    filter: grayscale(0%);
+  }
+  
+  .frame-decoration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    pointer-events: none;
+  }
+  
+  .profile-info {
+    flex: 2;
+  }
+  
+  .profile-info h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .profile-info h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--gradient);
+  }
+  
+  .profile-info .info {
+    font-size: 1.1rem;
+    color: var(--text-gray);
+    margin-bottom: 20px;
+  }
+  
+  .profile-info .bio {
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.05rem;
+    margin-bottom: 30px;
+  }
+  
+  .social-links {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    font-size: 18px;
+    transition: var(--transition);
+  }
+  
+  .social-icon:hover {
+    background: var(--gradient);
+    transform: translateY(-3px);
+  }
+  
+  /* 专长领域 */
+  .skills-section {
+    padding: 100px 0;
+    background-color: #101010;
+  }
+  
+  .section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 60px;
+    position: relative;
+    color: white;
+  }
+  
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: var(--gradient);
+  }
+  
+  .skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }
+  
+  .skill-item {
+    background-color: #1a1a1a;
+    padding: 40px 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+  }
+  
+  .skill-item:hover {
+    transform: translateY(-10px);
+  }
+  
+  .skill-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background: rgba(240, 95, 64, 0.1);
+    color: var(--accent);
+    border-radius: 50%;
+    font-size: 30px;
+    margin-bottom: 25px;
+    position: relative;
+  }
+  
+  .skill-icon::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 1px solid var(--accent);
+    animation: pulse 2s infinite;
+  }
+  
+  .skill-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: white;
+  }
+  
+  .skill-item p {
+    color: var(--text-gray);
+    line-height: 1.7;
+  }
+  
+  /* 最新作品预览 */
+  .latest-works {
+    padding: 100px 0;
+    background-color: #151515;
+  }
+  
+  .works-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: 50px;
+  }
+  
+  .work-item {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    height: 300px;
+  }
+  
+  .work-image {
+    height: 100%;
+    position: relative;
+  }
+  
+  .work-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .work-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 20px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    color: white;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+  }
+  
+  .work-item:hover .work-overlay {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .work-item:hover .work-image img {
+    transform: scale(1.1);
+  }
+  
+  .work-overlay h3 {
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+  }
+  
+  .work-overlay p {
+    font-size: 0.9rem;
+    opacity: 0.7;
+  }
+  
+  .view-more {
+    text-align: center;
+    margin-top: 40px;
+  }
+  
+  /* 摄影理念 */
+  .philosophy-section {
+    padding: 120px 0;
+    background-color: #101010;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .philosophy-section::before {
+    content: '';
+    position: absolute;
+    bottom: -200px;
+    left: -200px;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(rgba(240, 95, 64, 0.2), transparent 70%);
+    z-index: 0;
+  }
+  
+  .philosophy-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .philosophy-content h2 {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 30px;
+    font-style: italic;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .philosophy-content h2::before {
+    content: '"';
+    position: absolute;
+    top: -30px;
+    left: -40px;
+    font-size: 6rem;
+    color: rgba(240, 95, 64, 0.2);
+    font-family: Georgia, serif;
+  }
+  
+  .philosophy-content h2::after {
+    content: '"';
+    position: absolute;
+    bottom: -60px;
+    right: -40px;
+    font-size: 6rem;
+    color: rgba(240, 95, 64, 0.2);
+    font-family: Georgia, serif;
+  }
+  
+  .philosophy-content p {
+    color: var(--text-gray);
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 40px;
+  }
+  
+  .shutter-icon {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+  }
+  
+  .shutter-icon span {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: rgba(240, 95, 64, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .shutter-icon span:nth-child(1) { transform: rotate(0deg); }
+  .shutter-icon span:nth-child(2) { transform: rotate(60deg); }
+  .shutter-icon span:nth-child(3) { transform: rotate(120deg); }
+  .shutter-icon span:nth-child(4) { transform: rotate(180deg); }
+  .shutter-icon span:nth-child(5) { transform: rotate(240deg); }
+  .shutter-icon span:nth-child(6) { transform: rotate(300deg); }
+  
+  .shutter-icon:hover span:nth-child(odd) {
+    transform: rotate(calc(var(--n) * 60deg + 20deg));
+  }
+  
+  .shutter-icon:hover span:nth-child(even) {
+    transform: rotate(calc(var(--n) * 60deg - 20deg));
+  }
+  
+  /* 页脚 */
+  .footer {
+    background-color: #0a0a0a;
+    color: var(--text-gray);
+    text-align: center;
+    padding: 40px 0;
+  }
+  
+  .footer p {
+    margin: 10px 0;
+    font-size: 0.9rem;
+  }
+  
+  .footer-quote {
+    font-style: italic;
+    margin-top: 15px;
+    opacity: 0.7;
+  }
+  
+  /* 动画效果 */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1.5);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes glitch {
+    0% {
+      text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+                  -0.025em -0.05em 0 rgba(0, 255, 0, 0.75),
+                  0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+    14% {
+      text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+                  -0.025em -0.05em 0 rgba(0, 255, 0, 0.75),
+                  0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+    15% {
+      text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+                  0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
+                  -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+    49% {
+      text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+                  0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
+                  -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+    50% {
+      text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
+                  0.05em 0 0 rgba(0, 255, 0, 0.75),
+                  0 -0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+    99% {
+      text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
+                  0.05em 0 0 rgba(0, 255, 0, 0.75),
+                  0 -0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+    100% {
+      text-shadow: -0.025em 0 0 rgba(255, 0, 0, 0.75),
+                  -0.025em -0.025em 0 rgba(0, 255, 0, 0.75),
+                  -0.025em -0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+  }
+  
+  @keyframes glitch-anim {
+    0% {
+      clip: rect(44px, 9999px, 56px, 0);
+    }
+    5% {
+      clip: rect(30px, 9999px, 16px, 0);
+    }
+    10% {
+      clip: rect(54px, 9999px, 92px, 0);
+    }
+    15% {
+      clip: rect(64px, 9999px, 24px, 0);
+    }
+    20% {
+      clip: rect(26px, 9999px, 16px, 0);
+    }
+    25% {
+      clip: rect(12px, 9999px, 66px, 0);
+    }
+    30% {
+      clip: rect(74px, 9999px, 95px, 0);
+    }
+    35% {
+      clip: rect(46px, 9999px, 34px, 0);
+    }
+    40% {
+      clip: rect(38px, 9999px, 23px, 0);
+    }
+    45% {
+      clip: rect(43px, 9999px, 91px, 0);
+    }
+    50% {
+      clip: rect(8px, 9999px, 71px, 0);
+    }
+    55% {
+      clip: rect(81px, 9999px, 79px, 0);
+    }
+    60% {
+      clip: rect(20px, 9999px, 73px, 0);
+    }
+    65% {
+      clip: rect(35px, 9999px, 27px, 0);
+    }
+    70% {
+      clip: rect(39px, 9999px, 92px, 0);
+    }
+    75% {
+      clip: rect(3px, 9999px, 90px, 0);
+    }
+    80% {
+      clip: rect(83px, 9999px, 60px, 0);
+    }
+    85% {
+      clip: rect(63px, 9999px, 87px, 0);
+    }
+    90% {
+      clip: rect(51px, 9999px, 57px, 0);
+    }
+    95% {
+      clip: rect(89px, 9999px, 20px, 0);
+    }
+    100% {
+      clip: rect(64px, 9999px, 76px, 0);
+    }
+  }
+  
+  @keyframes glitch-anim2 {
+    0% {
+      clip: rect(96px, 9999px, 11px, 0);
+    }
+    5% {
+      clip: rect(65px, 9999px, 25px, 0);
+    }
+    10% {
+      clip: rect(84px, 9999px, 77px, 0);
+    }
+    15% {
+      clip: rect(91px, 9999px, 61px, 0);
+    }
+    20% {
+      clip: rect(65px, 9999px, 69px, 0);
+    }
+    25% {
+      clip: rect(82px, 9999px, 59px, 0);
+    }
+    30% {
+      clip: rect(40px, 9999px, 21px, 0);
+    }
+    35% {
+      clip: rect(15px, 9999px, 60px, 0);
+    }
+    40% {
+      clip: rect(25px, 9999px, 18px, 0);
+    }
+    45% {
+      clip: rect(81px, 9999px, 53px, 0);
+    }
+    50% {
+      clip: rect(31px, 9999px, 69px, 0);
+    }
+    55% {
+      clip: rect(96px, 9999px, 52px, 0);
+    }
+    60% {
+      clip: rect(58px, 9999px, 23px, 0);
+    }
+    65% {
+      clip: rect(21px, 9999px, 45px, 0);
+    }
+    70% {
+      clip: rect(49px, 9999px, 87px, 0);
+    }
+    75% {
+      clip: rect(56px, 9999px, 83px, 0);
+    }
+    80% {
+      clip: rect(85px, 9999px, 41px, 0);
+    }
+    85% {
+      clip: rect(20px, 9999px, 63px, 0);
+    }
+    90% {
+      clip: rect(39px, 9999px, 25px, 0);
+    }
+    95% {
+      clip: rect(18px, 9999px, 72px, 0);
+    }
+    100% {
+      clip: rect(44px, 9999px, 66px, 0);
+    }
+  }
+  
+  /* 响应式适配 */
+  @media (max-width: 992px) {
+    .profile-card {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .profile-image {
+      margin-bottom: 30px;
+      max-width: 300px;
+    }
+    
+    .profile-info h2::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .hero h1 {
+      font-size: 2.8rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .hero h1 {
+      font-size: 2.2rem;
+    }
+    
+    .hero p {
+      font-size: 1rem;
+    }
+    
+    .philosophy-content h2 {
+      font-size: 2rem;
+    }
+    
+    .philosophy-content h2::before,
+    .philosophy-content h2::after {
+      font-size: 4rem;
+    }
+    
+    .philosophy-content p {
+      font-size: 1rem;
+    }
+    
+    .section-title {
+      font-size: 1.8rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .skills-container {
+      grid-template-columns: 1fr;
+    }
+    
+    .hero h1 {
+      font-size: 1.8rem;
+    }
+    
+    .profile-info h2 {
+      font-size: 2rem;
+    }
+  }

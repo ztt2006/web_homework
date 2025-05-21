@@ -1,0 +1,185 @@
+:root {
+    --primary-color: #2c5530;    /* 深森林绿 */
+    --secondary-color: #8fb996;  /* 淡绿色 */
+    --accent-color: #f4a261;    /* 暖橙色 */
+    --bg-color: #f5f7f4;        /* 淡米白 */
+    --text-dark: #2e2e2e;
+    --overlay: rgba(255,255,255,0.9);
+}
+
+* {
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: var(--bg-gradient);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+header {
+    position: fixed; top: 0; left: 0;
+    width: 100%; padding: 12px 24px;
+    background: var(--overlay);
+    backdrop-filter: blur(8px);
+    display: flex; justify-content: space-between; align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 100;
+}
+
+header h1 {
+    font-size: 1.6rem;
+    color: var(--primary-color);
+}
+
+nav ul {
+    list-style: none;
+    display: flex; gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s;
+}
+nav a::after {
+    content: '';
+    position: absolute; left: 0; bottom: -4px;
+    width: 0; height: 2px;
+    background: var(--primary-color);
+    transition: width 0.3s;
+}
+nav a:hover {
+    color: var(--primary-color);
+}
+nav a:hover::after {
+    width: 100%;
+}
+
+main {
+    padding-top: 80px; /* 避开固定 header */
+}
+
+.intro {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+                url('../images/nature-banner.jpg') center/cover no-repeat;
+    color: white;
+    margin-bottom: 40px;
+}
+
+.intro h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.intro p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.gallery article {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.gallery article:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.gallery img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery article:hover img {
+    transform: scale(1.05);
+}
+
+.info {
+    padding: 20px;
+    background: var(--overlay);
+}
+
+.info h2 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 5px;
+}
+
+.info p {
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+.quote {
+    font-style: italic;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    .intro h2 {
+        font-size: 2rem;
+    }
+
+    .intro p {
+        font-size: 1rem;
+    }
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background: var(--overlay);
+    margin-top: 40px;
+    font-size: 0.9rem;
+}
+
+.back {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+.back:hover {
+    color: var(--secondary-color);
+}

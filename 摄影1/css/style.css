@@ -1,0 +1,1092 @@
+/* 全局样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #2c3e50;
+    --accent-color: #e74c3c;
+    --text-light: #ecf0f1;
+    --text-dark: #2c3e50;
+    --background-light: #f9f9f9;
+    --background-dark: #34495e;
+    --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+body {
+    font-family: 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+    line-height: 1.7;
+    color: var(--text-dark);
+    background-color: var(--background-light);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: var(--transition);
+}
+
+a:hover {
+    color: #3167b1;
+}
+
+/* 按钮样式 */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background-color: var(--accent-color);
+    color: var(--text-light);
+    border: none;
+    border-radius: 30px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(231, 76, 60, 0.4);
+    color: white;
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s ease;
+}
+
+.btn:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* 头部样式 */
+header {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 15px 0;
+    box-shadow: var(--shadow);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    transition: var(--transition);
+}
+
+header.scrolled {
+    padding: 10px 0;
+    background-color: rgba(255, 255, 255, 0.98);    
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 45px;
+    margin-right: 12px;
+    transition: var(--transition);
+}
+
+.logo h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-color);
+    letter-spacing: 1px;
+    transition: var(--transition);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 35px;
+    position: relative;
+}
+
+nav ul li a {
+    color: var(--text-dark);
+    font-weight: 500;
+    font-size: 16px;
+    position: relative;
+    padding: 5px 0;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--accent-color);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+nav ul li a:hover::after,
+nav ul li a.active::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    color: var(--accent-color);
+}
+
+/* 主要内容样式 */
+main {
+    margin-top: 80px;
+    min-height: calc(100vh - 160px);
+}
+
+/* 英雄区域 */
+.hero {
+    position: relative;
+    height: 85vh;
+    min-height: 550px;
+    background-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.65),
+        rgba(0, 0, 0, 0.4)
+    ),
+    url('../images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, transparent 50%, rgba(0, 0, 0, 0.6));
+    z-index: 1;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    animation: fadeIn 1.5s ease;
+}
+
+.hero h2 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: 1px;
+}
+
+.hero p {
+    font-size: 1.4rem;
+    margin-bottom: 40px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    font-weight: 300;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 个人简介区域 */
+.profile {
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.profile::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 300px;
+    height: 300px;
+    background-color: rgba(231, 76, 60, 0.05);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.profile::after {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    left: -100px;
+    width: 250px;
+    height: 250px;
+    background-color: rgba(44, 62, 80, 0.05);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.profile-content {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.profile-image {
+    flex: 1;
+    position: relative;
+}
+
+.profile-image::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    width: calc(100% + 30px);
+    height: calc(100% + 30px);
+    border: 2px solid var(--accent-color);
+    z-index: -1;
+    opacity: 0.5;
+}
+
+.profile-image img {
+    border-radius: 5px;
+    box-shadow: var(--shadow);
+    filter: saturate(1.1);
+    transition: var(--transition);
+}
+
+.profile-image img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.profile-text {
+    flex: 1;
+}
+
+.profile-text h2 {
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+    color: var(--primary-color);
+    position: relative;
+    display: inline-block;
+}
+
+.profile-text h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-color);
+}
+
+.profile-text p {
+    margin-bottom: 15px;
+    font-size: 1.05rem;
+}
+
+.profile-text .bio {
+    margin: 30px 0;
+    line-height: 1.9;
+    color: #555;
+}
+
+.profile-text .quote {
+    font-style: italic;
+    color: #666;
+    border-left: 3px solid var(--accent-color);
+    padding-left: 20px;
+    font-size: 1.1rem;
+    margin-top: 30px;
+    position: relative;
+}
+
+.profile-text .quote::before {
+    content: '"';
+    position: absolute;
+    top: -25px;
+    left: -5px;
+    font-size: 4rem;
+    color: rgba(231, 76, 60, 0.1);
+    font-family: Georgia, serif;
+}
+
+/* 作品集页面样式 */
+.gallery-header {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.gallery-header h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.gallery-header p {
+    max-width: 700px;
+    margin: 0 auto;
+    color: #666;
+}
+
+.gallery {
+    padding-bottom: 80px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.gallery-item {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.photo-info {
+    padding: 20px;
+}
+
+.photo-info h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.photo-info p {
+    margin-bottom: 10px;
+    color: #555;
+}
+
+/* 关于页面样式 */
+.about {
+    padding: 60px 0;
+}
+
+.about h2 {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.about-content {
+    display: flex;
+    gap: 50px;
+}
+
+.about-text {
+    flex: 2;
+}
+
+.equipment {
+    flex: 1;
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    align-self: flex-start;
+}
+
+.about-text h3, .equipment h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #333;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.about-text p {
+    margin-bottom: 25px;
+    line-height: 1.8;
+}
+
+.equipment ul {
+    list-style: none;
+}
+
+.equipment ul li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.equipment ul li:last-child {
+    border-bottom: none;
+}
+
+/* 页脚样式 */
+footer {
+    background-color: var(--background-dark);
+    color: var(--text-light);
+    text-align: center;
+    padding: 40px 0;
+}
+
+footer p {
+    opacity: 0.8;
+}
+
+/* 动画 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 响应式设计 */
+@media (max-width: 992px) {
+    .hero h2 {
+        font-size: 2.8rem;
+    }
+    
+    .hero p {
+        font-size: 1.2rem;
+    }
+    
+    .profile-content {
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+    }
+    
+    nav ul {
+        margin-top: 15px;
+    }
+    
+    nav ul li {
+        margin: 0 12px;
+    }
+    
+    .hero h2 {
+        font-size: 2.3rem;
+    }
+    
+    .hero p {
+        font-size: 1.1rem;
+    }
+    
+    .profile-content {
+        flex-direction: column;
+    }
+    
+    .profile-image, .profile-text {
+        width: 100%;
+    }
+    
+    .profile-image {
+        margin-bottom: 40px;
+    }
+    
+    .profile {
+        padding: 70px 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero {
+        height: 75vh;
+    }
+    
+    .hero h2 {
+        font-size: 2rem;
+    }
+    
+    .profile-text h2 {
+        font-size: 1.8rem;
+    }
+}
+
+/* 添加到现有样式文件底部 */
+
+/* 作品集页面样式 */
+.gallery-header {
+    text-align: center;
+    padding: 80px 0 50px;
+    position: relative;
+    background-color: var(--background-light);
+}
+
+.gallery-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-color);
+}
+
+.gallery-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    position: relative;
+    display: inline-block;
+}
+
+.gallery-header p {
+    max-width: 700px;
+    margin: 0 auto;
+    color: #666;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.gallery {
+    padding: 60px 0 100px;
+    background-color: var(--background-light);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 35px;
+}
+
+.gallery-item {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.gallery-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    transition: all 0.5s ease;
+    filter: brightness(0.95);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+    filter: brightness(1.05);
+}
+
+.photo-info {
+    padding: 25px;
+    position: relative;
+}
+
+.photo-info::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 25px;
+    width: 40px;
+    height: 3px;
+    background-color: var(--accent-color);
+    transform: translateY(-50%);
+}
+
+.photo-info h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.photo-info p {
+    margin-bottom: 12px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.photo-info p:last-child {
+    margin-top: 20px;
+    font-style: italic;
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+/* 图片悬停效果叠加层 */
+.gallery-item {
+    position: relative;
+}
+
+.gallery-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 280px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.3));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.gallery-item:hover::after {
+    opacity: 1;
+}
+
+/* 添加过滤类别标签 */
+.filter-tags {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.filter-tag {
+    padding: 8px 20px;
+    margin: 0 8px 10px;
+    background-color: white;
+    border-radius: 25px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    border: 1px solid #eee;
+}
+
+.filter-tag:hover, .filter-tag.active {
+    background-color: var(--accent-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* 添加图片查看指示器 */
+.gallery-item .view-indicator {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255,255,255,0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+.gallery-item:hover .view-indicator {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.view-indicator::before {
+    content: '+';
+    font-size: 24px;
+    font-weight: 300;
+    color: var(--primary-color);
+}
+
+/* 加载更多按钮 */
+.load-more {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.load-more .btn {
+    background-color: white;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    padding: 12px 30px;
+}
+
+.load-more .btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* 响应式设计调整 */
+@media (max-width: 992px) {
+    .gallery-header {
+        padding: 60px 0 40px;
+    }
+    
+    .gallery-header h2 {
+        font-size: 2.2rem;
+    }
+    
+    .gallery {
+        padding: 50px 0 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+    
+    .gallery-header h2 {
+        font-size: 2rem;
+    }
+    
+    .gallery-header p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .photo-info {
+        padding: 20px;
+    }
+    
+    .gallery-item img {
+        height: 250px;
+    }
+}
+
+/* 关于页面样式 - 添加到现有样式表末尾 */
+
+/* 关于我页面主要区域 */
+.about {
+    padding: 100px 0 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+.about::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(231, 76, 60, 0.05) 0%, rgba(231, 76, 60, 0) 70%);
+    z-index: -1;
+}
+
+.about h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: var(--primary-color);
+    position: relative;
+}
+
+.about h2::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-color);
+}
+
+.about-content {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+}
+
+.about-text {
+    flex: 2;
+    position: relative;
+}
+
+.about-text::before {
+    content: '"';
+    position: absolute;
+    top: -70px;
+    left: -30px;
+    font-size: 150px;
+    color: rgba(231, 76, 60, 0.05);
+    font-family: Georgia, serif;
+    z-index: -1;
+}
+
+.about-text h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin: 30px 0 15px;
+    position: relative;
+    padding-left: 15px;
+}
+
+.about-text h3:first-child {
+    margin-top: 0;
+}
+
+.about-text h3::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background-color: var(--accent-color);
+    border-radius: 2px;
+}
+
+.about-text p {
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 15px;
+    font-size: 1.05rem;
+}
+
+/* 装备区域样式 */
+.equipment {
+    flex: 1;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.equipment:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.equipment::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 60px;
+    height: 60px;
+    background-image: url('../images/camera-icon.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.1;
+}
+
+.equipment h3 {
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #f0f0f0;
+    position: relative;
+}
+
+.equipment ul {
+    list-style: none;
+}
+
+.equipment ul li {
+    padding: 12px 0;
+    border-bottom: 1px solid #f5f5f5;
+    color: #555;
+    position: relative;
+    padding-left: 25px;
+    transition: transform 0.2s ease;
+}
+
+.equipment ul li:hover {
+    transform: translateX(5px);
+    color: var(--primary-color);
+}
+
+.equipment ul li:last-child {
+    border-bottom: none;
+}
+
+.equipment ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    line-height: 1;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* 联系信息样式 */
+.about-text h3:nth-child(7) {
+    margin-top: 40px;
+}
+
+.about-text h3:nth-child(7) + p, 
+.about-text h3:nth-child(7) + p + p {
+    position: relative;
+    padding-left: 30px;
+}
+
+.about-text h3:nth-child(7) + p::before, 
+.about-text h3:nth-child(7) + p + p::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.about-text h3:nth-child(7) + p::before {
+    background-image: url('../images/email-icon.png');
+}
+
+.about-text h3:nth-child(7) + p + p::before {
+    background-image: url('../images/wechat-icon.png');
+}
+
+/* 响应式设计调整 */
+@media (max-width: 992px) {
+    .about {
+        padding: 80px 0 60px;
+    }
+    
+    .about h2 {
+        font-size: 2.2rem;
+    }
+    
+    .about-content {
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+    }
+    
+    .equipment {
+        margin-top: 40px;
+        width: 100%;
+    }
+    
+    .about h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .about {
+        padding: 60px 0 40px;
+    }
+    
+    .about-text h3 {
+        font-size: 1.3rem;
+    }
+    
+    .equipment {
+        padding: 25px;
+    }
+}
+
+/* 图片预览容器 - 可以添加一些代表性作品缩略图 */
+.photo-preview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.preview-image {
+    flex: 0 0 calc(33.333% - 10px);
+    aspect-ratio: 3/2;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.preview-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.preview-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.5s ease;
+}
+
+.preview-image:hover img {
+    transform: scale(1.1);
+}

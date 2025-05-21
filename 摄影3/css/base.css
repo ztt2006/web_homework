@@ -1,0 +1,70 @@
+/* 基础重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "思源宋体", "微软雅黑", serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f7f3; /* 米白色背景，符合摄影质感 */
+}
+
+/* 导航栏样式 */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.8rem;
+    color: #2d2d2d;
+    font-weight: 600;
+}
+
+.nav {
+    display: flex;
+    gap: 2.5rem;
+}
+
+.nav-link {
+    color: #666;
+    text-decoration: none; /* 去掉下划线 */
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #c5a47e; /* 暖金色，符合摄影主题 */
+}
+
+/* 通用页面结构 - 所有页面都有顶部间距 */
+.page-content {
+    margin-top: 120px;
+    padding: 2rem 5%;
+}
+
+/* 通用卡片样式 */
+.card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.08);
+    padding: 3rem;
+}
+
+/* 通用标题样式 */
+.section-title {
+    color: #2d2d2d;
+    margin-bottom: 2rem;
+    text-align: center;
+}

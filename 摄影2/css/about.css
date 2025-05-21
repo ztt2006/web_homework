@@ -1,0 +1,188 @@
+:root {
+    --primary-color: #2c5530;    /* 深森林绿 */
+    --secondary-color: #8fb996;  /* 淡绿色 */
+    --accent-color: #f4a261;    /* 暖橙色 */
+    --bg-color: #f5f7f4;        /* 淡米白 */
+    --text-dark: #2e2e2e;
+    --overlay: rgba(255,255,255,0.9);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--bg-color);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+header {
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+                url('../images/nature-banner.jpg') center/cover no-repeat;
+    padding: 100px 20px 60px;
+    text-align: center;
+    color: white;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--accent-color);
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.profile {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 60px;
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.profile-image {
+    flex: 0 0 300px;
+}
+
+.profile-image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.profile-content {
+    flex: 1;
+}
+
+.profile-content h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.bio {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+.contact-info, .social-media {
+    margin-bottom: 30px;
+}
+
+.contact-info h3, .social-media h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.social-media ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.social-media a {
+    text-decoration: none;
+    color: var(--text-dark);
+    padding: 8px 15px;
+    border-radius: 5px;
+    background: var(--bg-color);
+    transition: all 0.3s;
+}
+
+.social-media a:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+.philosophy {
+    text-align: center;
+    padding: 60px 0;
+}
+
+.philosophy h2 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 40px;
+}
+
+.philosophy-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.philosophy-item {
+    padding: 30px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.philosophy-item:hover {
+    transform: translateY(-5px);
+}
+
+.philosophy-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+footer {
+    background: var(--overlay);
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 60px;
+}
+
+.quote {
+    font-style: italic;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.copyright {
+    color: var(--text-dark);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .profile {
+        flex-direction: column;
+    }
+    
+    .profile-image {
+        flex: 0 0 auto;
+    }
+}
