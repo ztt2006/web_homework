@@ -1,0 +1,439 @@
+/* 基础重置与变量 */
+:root {
+    --primary-color: #1e3a8a;   /* 主色-深蓝 */
+    --secondary-color: #2563eb; /* 辅助色-蓝 */
+    --text-color: #2d3748;      /* 正文色 */
+    --bg-overlay: rgba(30, 58, 138, 0.8); /* 背景遮罩色 */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'PingFang SC', 'Segoe UI', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    color: var(--text-color);
+}
+
+/* 背景图设置 */
+.bg-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(var(--bg-overlay), var(--bg-overlay)), 
+                url('../images/1.jpeg'); /* 深圳城市全景图 */
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+/* 导航栏 */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1.2rem 5%;
+    background: rgba(255, 255, 255, 0.98); /* 更通透的背景 */
+    transition: all 0.3s;
+}
+
+.navbar.scrolled { /* 滚动时缩小导航栏 */
+    padding: 0.8rem 5%;
+    box-shadow: 0 4px 20px rgba(30, 58, 138, 0.15);
+}
+
+.nav-links a {
+    position: relative;
+    padding-bottom: 0.3rem;
+}
+
+.nav-links a::after { /* 下划线悬停动画 */
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--secondary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* 移动端汉堡菜单（新增） */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        padding: 1rem 5%;
+        gap: 1rem;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--secondary-color);
+}
+
+/* 主内容区 */
+.content {
+    max-width: 1200px;
+    margin: 120px auto 50px;
+    padding: 0 5%;
+}
+
+.section {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 3rem 2.5rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 5px 30px rgba(0,0,0,0.08);
+    transform: translateY(50px);
+    opacity: 0;
+    transition: all 0.6s ease;
+}
+
+.section.visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.section-title {
+    color: var(--primary-color);
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    border-left: 6px solid var(--secondary-color);
+    padding-left: 15px;
+}
+
+.section-desc {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+/* 数据统计网格 */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.stat-card {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 2rem 1rem;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-card h3 {
+    color: var(--secondary-color);
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+}
+
+.stat-card p {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+/* 景点网格 */
+.attractions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+}
+
+/* 景点卡片优化 */
+.attraction-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fd 100%); /* 渐变背景 */
+    border: 1px solid #e5e7eb;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.attraction-card:hover {
+    transform: translateY(-8px) rotate(1deg); /* 增加旋转效果 */
+    box-shadow: 0 8px 30px rgba(30, 58, 138, 0.15);
+}
+
+/* 美食卡片优化 */
+.food-card {
+    background: white;
+    border-radius: 20px;
+    position: relative;
+    overflow: visible; /* 允许阴影超出 */
+}
+
+.food-card::before { /* 卡片投影 */
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 5%;
+    width: 90%;
+    height: 20px;
+    background: rgba(30, 58, 138, 0.1);
+    border-radius: 50%;
+    filter: blur(10px);
+    z-index: -1;
+    transition: all 0.3s;
+}
+
+.food-card:hover::before {
+    width: 80%;
+    left: 10%;
+}
+
+.attraction-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.attraction-info {
+    padding: 1.5rem;
+}
+
+.attraction-info h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.8rem;
+}
+
+/* 美食网格 */
+.food-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+}
+
+.food-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.food-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.food-info {
+    padding: 1.5rem;
+    flex: 1;
+}
+
+.food-info h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.8rem;
+}
+
+/* 时间轴 */
+.timeline {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline-item {
+    margin-bottom: 3rem;
+    display: flex;
+    gap: 2rem;
+}
+
+.timeline-year {
+    min-width: 80px;
+    height: 80px;
+    background: var(--secondary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.timeline-content {
+    flex: 1;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+}
+
+/* 页脚 */
+.footer {
+    background: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 2rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* 移动端简化导航 */
+    }
+
+    .section {
+        padding: 2rem 1.5rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .timeline-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+
+/* 基础变量升级 */
+:root {
+    --primary-color: #1e3a8a;   /* 主色-深海蓝 */
+    --secondary-color: #2563eb; /* 辅助色-活力蓝 */
+    --accent-color: #60a5fa;    /* 强调色-浅蓝 */
+    --gradient: linear-gradient(45deg, #1e3a8a 20%, #2563eb 100%); /* 动态渐变 */
+    --glass-bg: rgba(255, 255, 255, 0.92); /* 玻璃质感背景 */
+}
+
+/* 整体背景优化 */
+.bg-overlay {
+    background: linear-gradient(rgba(30, 58, 138, 0.85), rgba(30, 58, 138, 0.85)), 
+                url('../images/1.jpeg'); /* 更清晰的城市全景图 */
+    background-size: cover;
+    background-position: top;
+}
+
+/* 卡片统一升级 */
+.section {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px); /* 玻璃模糊效果 */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.attraction-card, .food-card, .landmark-card {
+    border-radius: 18px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.attraction-card:hover, .food-card:hover, .landmark-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(30, 58, 138, 0.15);
+}
+
+/* 地标卡片样式 */
+.landmarks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+}
+
+.landmark-img {
+    height: 240px;
+    background-size: cover;
+    background-position: center;
+}
+
+.landmark-info {
+    padding: 1.5rem;
+}
+
+/* 导航栏动态效果 */
+.navbar {
+    background: rgba(255, 255, 255, 0.98);
+    transition: all 0.3s;
+}
+
+.navbar.scrolled {
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    padding: 0.8rem 5%;
+}
+
+/* 标题样式增强 */
+.section-title {
+    font-size: 2.4rem;
+    margin-bottom: 2.5rem;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+    width: 80px;
+    height: 4px;
+    background: var(--gradient);
+    border-radius: 2px;
+}

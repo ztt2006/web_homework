@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的兴趣星球 | 生活里的光</title>
+    <link rel="stylesheet" href="css/hobby.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h1>🌟 我的兴趣地图</h1>
+            <p>"爱好是生活的解药，每个热爱都值得被记录"</p>
+        </div>
+    </header>
+
+    <nav class="hobby-filter">
+        <button class="filter-btn active" data-type="all">全部</button>
+        <button class="filter-btn" data-type="read">阅读</button>
+        <button class="filter-btn" data-type="travel">旅行</button>
+        <button class="filter-btn" data-type="photo">摄影</button>
+        <button class="filter-btn" data-type="cook">烹饪</button>
+    </nav>
+
+    <main class="hobby-grid">
+        <!-- 阅读类 -->
+        <div class="hobby-card" data-type="read">
+            <div class="card-visual">
+                <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=800')"></div>
+                <i class="fas fa-book-open card-icon"></i>
+            </div>
+            <div class="card-content">
+                <h3>纸质书收集者</h3>
+                <p>从高中开始收藏，现在有237本实体书。偏爱文学类（尤其是拉美魔幻现实主义），书房有整面墙的胡桃木书架。</p>
+                <ul class="hobby-tags">
+                    <li>年读50+本</li>
+                    <li>手作书签120+枚</li>
+                    <li>建立读书社群（200+人）</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 旅行类 -->
+        <div class="hobby-card" data-type="travel">
+            <div class="card-visual">
+                <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1532339142463-fd0a8979791a?auto=format&fit=crop&w=800')"></div>
+                <i class="fas fa-plane-departure card-icon"></i>
+            </div>
+            <div class="card-content">
+                <h3>城市探索家</h3>
+                <p>专注深度游，每到一个城市必做三件事：逛老城区菜市场、坐2元公交看街景、找本地老字号早餐店。</p>
+                <ul class="hobby-tags">
+                    <li>去过23个城市</li>
+                    <li>收集37张明信片</li>
+                    <li>写旅行手账8本</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 摄影类 -->
+        <div class="hobby-card" data-type="photo">
+            <div class="card-visual">
+                <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=800')"></div>
+                <i class="fas fa-camera card-icon"></i>
+            </div>
+            <div class="card-content">
+                <h3>光影记录者</h3>
+                <p>用富士XT-4记录日常，擅长捕捉「生活里的小确幸」——比如傍晚的云、咖啡馆的光影、朋友的笑脸。</p>
+                <ul class="hobby-tags">
+                    <li>拍摄12000+张</li>
+                    <li>入选摄影展3次</li>
+                    <li>建立个人图册</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 烹饪类 -->
+        <div class="hobby-card" data-type="cook">
+            <div class="card-visual">
+                <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800')"></div>
+                <i class="fas fa-utensils card-icon"></i>
+            </div>
+            <div class="card-content">
+                <h3>家庭烘焙师</h3>
+                <p>从戚风蛋糕入门，现在能做马卡龙、欧包、提拉米苏。最擅长给朋友做生日定制蛋糕。</p>
+                <ul class="hobby-tags">
+                    <li>研发食谱47个</li>
+                    <li>烘焙工具52件</li>
+                    <li>获"朋友圈美食博主"称号</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>📸 照片拍摄于2020-2023 | 更多日常在 <a href="#/" class="social-link">小红书</a> / <a href="#/" class="social-link">Lofter</a></p>
+    </footer>
+
+    <script>
+        // 分类筛选功能
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const type = btn.dataset.type;
+                document.querySelectorAll('.hobby-card').forEach(card => {
+                    card.style.display = type === 'all' ? 'grid' : 
+                                      card.dataset.type === type ? 'grid' : 'none';
+                });
+                document.querySelector('.filter-btn.active').classList.remove('active');
+                btn.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

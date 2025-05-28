@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人特长展示 | 我的技能图谱</title>
+    <link rel="stylesheet" href="css/talent.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <h1>✨ 个人特长全览 ✨</h1>
+        <p>"技能是时间的沉淀，特长是热爱的形状"</p>
+    </header>
+
+    <nav class="category-nav">
+        <button class="category-btn active" data-category="all">全部</button>
+        <button class="category-btn" data-category="tech">技术类</button>
+        <button class="category-btn" data-category="art">艺术类</button>
+        <button class="category-btn" data-category="sport">运动类</button>
+    </nav>
+
+    <main class="skills-container">
+        <!-- 技术类技能 -->
+        <div class="skill-card" data-category="tech">
+            <div class="card-icon"><i class="fas fa-laptop-code"></i></div>
+            <h3>Web开发</h3>
+            <p>5年前端开发经验，精通React/Vue框架，熟悉前后端协作流程，主导过3个企业级Web项目开发</p>
+            <div class="skill-progress">
+                <div class="progress-bar" style="width: 90%"><span>90%</span></div>
+            </div>
+        </div>
+
+        <div class="skill-card" data-category="tech">
+            <div class="card-icon"><i class="fas fa-database"></i></div>
+            <h3>数据处理</h3>
+            <p>熟练使用Python进行数据清洗/可视化（Matplotlib/Pandas），掌握SQL复杂查询及数据库优化</p>
+            <div class="skill-progress">
+                <div class="progress-bar" style="width: 85%"><span>85%</span></div>
+            </div>
+        </div>
+
+        <!-- 艺术类技能 -->
+        <div class="skill-card" data-category="art">
+            <div class="card-icon"><i class="fas fa-music"></i></div>
+            <h3>钢琴演奏</h3>
+            <p>钢琴十级（中央音乐学院），擅长古典与流行曲目改编，曾获市级青少年钢琴比赛银奖</p>
+            <div class="skill-progress">
+                <div class="progress-bar" style="width: 95%"><span>95%</span></div>
+            </div>
+        </div>
+
+        <div class="skill-card" data-category="art">
+            <div class="card-icon"><i class="fas fa-palette"></i></div>
+            <h3>插画设计</h3>
+            <p>Procreate/PS熟练使用者，风格涵盖扁平插画、厚涂水彩，作品曾在站酷发布获5W+浏览</p>
+            <div class="skill-progress">
+                <div class="progress-bar" style="width: 80%"><span>80%</span></div>
+            </div>
+        </div>
+
+        <!-- 运动类技能 -->
+        <div class="skill-card" data-category="sport">
+            <div class="card-icon"><i class="fas fa-basketball-ball"></i></div>
+            <h3>篮球</h3>
+            <p>校篮球队主力得分后卫，擅长三分球与快攻，大学期间带领团队获得校联赛亚军</p>
+            <div class="skill-progress">
+                <div class="progress-bar" style="width: 88%"><span>88%</span></div>
+            </div>
+        </div>
+
+        <div class="skill-card" data-category="sport">
+            <div class="card-icon"><i class="fas fa-running"></i></div>
+            <h3>马拉松</h3>
+            <p>完成4次全程马拉松（最好成绩3小时50分），坚持晨跑5年，累计跑步里程超10000公里</p>
+            <div class="skill-progress">
+                <div class="progress-bar" style="width: 92%"><span>92%</span></div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>🏆 持续成长中 | 技能值每周更新</p>
+    </footer>
+
+    <script>
+        // 分类筛选功能
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const category = btn.dataset.category;
+                document.querySelectorAll('.skill-card').forEach(card => {
+                    card.style.display = category === 'all' ? 'block' : 
+                                      card.dataset.category === category ? 'block' : 'none';
+                });
+                document.querySelector('.category-btn.active').classList.remove('active');
+                btn.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

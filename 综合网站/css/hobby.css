@@ -1,0 +1,199 @@
+/* 基础样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: '苹方', '微软雅黑', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #fff8f0 0%, #fff0e0 100%);
+    line-height: 1.7;
+    color: #4a4a4a;
+}
+
+/* 头部样式 */
+.header {
+    background: linear-gradient(45deg, #ff6b6b 20%, #ff8e53 100%);
+    padding: 4rem 2rem;
+    margin-bottom: 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.header h1 {
+    color: white;
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+}
+
+.header p {
+    color: #fff0e0;
+    font-size: 1.1rem;
+    max-width: 600px;
+}
+
+/* 筛选导航 */
+.hobby-filter {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    padding: 0 2rem;
+    margin: 0 auto 4rem;
+    flex-wrap: wrap;
+    max-width: 1200px;
+}
+
+.filter-btn {
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 30px;
+    background: white;
+    color: #ff6b6b;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(255, 107, 107, 0.15);
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: #ff6b6b;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(255, 107, 107, 0.3);
+}
+
+/* 兴趣网格 */
+.hobby-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    padding: 0 2rem;
+    max-width: 1200px;
+    margin: 0 auto 5rem;
+}
+
+/* 兴趣卡片 */
+.hobby-card {
+    background: white;
+    border-radius: 25px;
+    box-shadow: 0 8px 35px rgba(255, 107, 107, 0.1);
+    overflow: hidden;
+    display: grid; /* 配合筛选 */
+    transition: transform 0.3s ease;
+}
+
+.hobby-card:hover {
+    transform: translateY(-10px);
+}
+
+.card-visual {
+    position: relative;
+    height: 240px;
+    overflow: hidden;
+}
+
+.card-bg {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px);
+    transform: scale(1.1);
+}
+
+.card-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3.5rem;
+    color: white;
+    text-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+}
+
+.card-content {
+    padding: 2rem 2rem 2.5rem;
+}
+
+.card-content h3 {
+    color: #ff6b6b;
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+}
+
+.card-content p {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 1.2rem;
+    min-height: 60px;
+}
+
+/* 兴趣标签 */
+.hobby-tags {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.hobby-tags li {
+    background: #fff0e0;
+    color: #ff6b6b;
+    font-size: 0.85rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-weight: 500;
+}
+
+/* 页脚 */
+.footer {
+    text-align: center;
+    padding: 2rem;
+    background: white;
+    color: #666;
+    box-shadow: 0 -4px 30px rgba(255, 107, 107, 0.1);
+}
+
+.footer .social-link {
+    color: #ff6b6b;
+    text-decoration: none;
+    font-weight: 500;
+    margin: 0 0.3rem;
+}
+
+.footer .social-link:hover {
+    text-decoration: underline;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .hobby-grid {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+
+    .hobby-filter {
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+
+    .filter-btn {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .header h1 {
+        font-size: 2.2rem;
+    }
+}

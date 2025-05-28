@@ -1,0 +1,174 @@
+/* 主容器 */
+.study-main {
+    max-width: 1200px;
+    margin: 120px auto 50px;
+    padding: 0 2rem;
+}
+
+.study-title {
+    font-size: 2.8rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+/* 通用板块样式 */
+.study-section {
+    margin-bottom: 3.5rem;
+}
+
+.section-subtitle {
+    font-size: 2rem;
+    color: #1e3a8a;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-left: 20px;
+}
+
+.section-subtitle::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 80%;
+    background: linear-gradient(45deg, #1e3a8a 20%, #2563eb 100%);
+    border-radius: 3px;
+}
+
+/* 内容卡片 */
+.content-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 8px 30px rgba(30, 58, 138, 0.08);
+}
+
+.study-text {
+    font-size: 1.1rem;
+    color: #475569;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+/* 技能列表 */
+.skill-list {
+    list-style: none;
+    padding-left: 1.5rem;
+}
+
+.skill-list li {
+    position: relative;
+    margin-bottom: 1rem;
+    font-size: 1.05rem;
+    color: #1e3a8a;
+}
+
+.skill-list li::before {
+    content: '✓';
+    position: absolute;
+    left: -1.5rem;
+    color: #2563eb;
+    font-weight: bold;
+}
+
+/* 成就网格 */
+.achievement-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.achievement-item {
+    background: #f8f9fd;
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.achievement-item:hover {
+    transform: translateY(-5px);
+}
+
+.achievement-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #2563eb;
+}
+
+/* 挑战与解决 */
+.challenge-box {
+    border-left: 4px solid #2563eb;
+    padding-left: 1.5rem;
+}
+
+.solution-list {
+    padding-left: 1.8rem;
+    margin: 1rem 0;
+}
+
+.solution-list li {
+    margin-bottom: 0.8rem;
+    color: #475569;
+    line-height: 1.6;
+}
+
+/* 未来计划网格 */
+.plan-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.plan-item {
+    background: #f0f4f8;
+    border-radius: 12px;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.plan-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: #2563eb;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .study-main {
+        margin: 80px auto 30px;
+        padding: 0 1rem;
+    }
+
+    .study-title {
+        font-size: 2.2rem;
+    }
+
+    .section-subtitle {
+        font-size: 1.6rem;
+    }
+
+    .content-card {
+        padding: 1.5rem;
+    }
+
+    .achievement-grid, .plan-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 渐变文字 */
+.gradient-text {
+    background: linear-gradient(45deg, #1e3a8a 20%, #2563eb 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
