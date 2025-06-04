@@ -1,0 +1,12 @@
+{
+    "currentUserCount": 125860,
+    "growthRate": 15.3,
+    "trend": [
+      {"month": "1月", "count": 98000, "lastYearCount": 85000},
+      {"month": "2月", "count": 102000, "lastYearCount": 88000},
+      {"month": "3月", "count": 105000, "lastYearCount": 90000},
+      {"month": "4月", "count": 110000, "lastYearCount": 92000},
+      {"month": "5月", "count": 115000, "lastYearCount": 95000},
+      {"month": "6月", "count": 125860, "lastYearCount": 100000}
+    ]
+  }

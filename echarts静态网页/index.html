@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电商数据可视化系统</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>电商数据看板</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#user" class="nav-item active" data-section="user">
+                    <span class="nav-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </span> 用户分析
+                </a>
+                <a href="#sales" class="nav-item" data-section="sales">
+                    <span class="nav-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart-2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                    </span> 销售分析
+                </a>
+                <a href="#order" class="nav-item" data-section="order">
+                    <span class="nav-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-package"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"></line><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                    </span> 订单分析
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <button id="theme-toggle" class="theme-button">
+                    <span class="theme-icon-sun">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    </span>
+                    <span class="theme-icon-moon" style="display:none;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                    </span>
+                    <span class="theme-button-text">切换主题</span>
+                </button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <h1 id="current-module-title">用户分析</h1>
+            </header>
+
+            <!-- 用户分析模块 -->
+            <section id="user-section" class="module-section active">
+                <div class="chart-grid">
+                    <div class="chart-card">
+                        <div class="card-header">
+                            <h3>用户数量及同比增长率</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="kpi-group">
+                                <div class="kpi">
+                                    <span class="kpi-value" id="display-user-count">--</span>
+                                    <span class="kpi-label">当前用户数</span>
+                                </div>
+                                <div class="kpi">
+                                    <span class="kpi-value" id="display-user-growth-rate">--%</span>
+                                    <span class="kpi-label">同比增长率</span>
+                                </div>
+                            </div>
+                            <div class="chart-container" id="user-count-chart"></div>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <div class="card-header">
+                            <h3>青年消费者需求分布</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart-container" id="young-consumer-demand-chart"></div>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <div class="card-header">
+                            <h3>用户状态分布</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart-container" id="user-status-chart"></div>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <div class="card-header">
+                            <h3>用户分类</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart-container" id="user-category-chart"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 销售分析模块 (结构类似) -->
+            <section id="sales-section" class="module-section">
+                <div class="chart-grid">
+                    <div class="chart-card">
+                        <div class="card-header"><h3>年度销售额</h3></div>
+                        <div class="card-body"><div class="chart-container" id="annual-sales-chart"></div></div>
+                    </div>
+                    <div class="chart-card">
+                        <div class="card-header"><h3>月度销售额</h3></div>
+                        <div class="card-body"><div class="chart-container" id="monthly-sales-chart"></div></div>
+                    </div>
+                    <div class="chart-card">
+                        <div class="card-header"><h3>平台转化率</h3></div>
+                        <div class="card-body"><div class="chart-container" id="conversion-rate-chart"></div></div>
+                    </div>
+                    <div class="chart-card">
+                        <div class="card-header"><h3>各地区销售分析</h3></div>
+                        <div class="card-body"><div class="chart-container" id="regional-sales-chart"></div></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 订单分析模块 (结构类似) -->
+            <section id="order-section" class="module-section">
+                 <div class="chart-grid">
+                    <div class="chart-card">
+                        <div class="card-header"><h3>单日订单量</h3></div>
+                        <div class="card-body"><div class="chart-container" id="daily-orders-chart"></div></div>
+                    </div>
+                    <div class="chart-card">
+                        <div class="card-header"><h3>不同订单状态</h3></div>
+                        <div class="card-body"><div class="chart-container" id="order-status-chart"></div></div>
+                    </div>
+                    <div class="chart-card">
+                        <div class="card-header"><h3>各地区订单量</h3></div>
+                        <div class="card-body"><div class="chart-container" id="regional-orders-chart"></div></div>
+                    </div>
+                    <div class="chart-card">
+                        <div class="card-header"><h3>订单配送方式</h3></div>
+                        <div class="card-body"><div class="chart-container" id="delivery-methods-chart"></div></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

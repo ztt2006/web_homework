@@ -1,0 +1,9 @@
+[
+    {"name": "华东", "value": 1800},
+    {"name": "华南", "value": 1500},
+    {"name": "华北", "value": 1200},
+    {"name": "西南", "value": 950},
+    {"name": "东北", "value": 700},
+    {"name": "西北", "value": 550},
+    {"name": "华中", "value": 800}
+  ]
