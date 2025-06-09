@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户注册 - 美景旅游网</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>美景旅游</h1>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="scenery.html">景点介绍</a></li>
+                    <li><a href="login.html">登录</a></li>
+                    <li><a href="register.html" class="active">注册</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="register-main">
+        <section class="register-section">
+            <div class="register-container">
+                <h2>用户注册</h2>
+                <form class="register-form">
+                    <div class="form-group">
+                        <label for="reg-username">用户名:</label>
+                        <input type="text" id="reg-username" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">邮箱:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-password">密码:</label>
+                        <input type="password" id="reg-password" name="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-password">确认密码:</label>
+                        <input type="password" id="confirm-password" name="confirm-password" required>
+                    </div>
+                    <button type="submit" class="btn-register">注册</button>
+                    <p class="login-link">
+                        已有账户？<a href="login.html">立即登录</a>
+                    </p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 美景旅游网. 版权所有</p>
+        </div>
+    </footer>
+</body>
+</html>

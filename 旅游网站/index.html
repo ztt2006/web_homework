@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>美景旅游网 - 发现世界之美</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>美景旅游</h1>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="scenery.html">景点介绍</a></li>
+                    <li><a href="login.html">登录</a></li>
+                    <li><a href="register.html">注册</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 音乐控制按钮 -->
+    <div class="music-control">
+        <button id="musicBtn" class="music-btn">🎵 播放音乐</button>
+    </div>
+
+    <main class="main-content">
+        <section class="hero-section">
+            <video autoplay muted loop class="hero-video">
+                <source src="img/travel-video.mp4" type="video/mp4">
+                您的浏览器不支持视频播放
+            </video>
+            <div class="hero-content">
+                <h2>探索未知的美景</h2>
+                <p>与我们一起发现世界各地的绝美风光</p>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <article class="feature-item">
+                    <img src="img/mountain.jpg" alt="山景">
+                    <h3>山川美景</h3>
+                    <p>壮丽的山川风光，让您感受大自然的鬼斧神工</p>
+                </article>
+                <article class="feature-item">
+                    <img src="img/sea.jpg" alt="海景">
+                    <h3>海滨风光</h3>
+                    <p>碧海蓝天，细沙白浪，享受海滨度假的惬意时光</p>
+                </article>
+                <article class="feature-item">
+                    <img src="img/city.jpeg" alt="城市">
+                    <h3>都市风情</h3>
+                    <p>现代都市的繁华与古典文化的完美融合</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 美景旅游网. 版权所有</p>
+        </div>
+    </footer>
+
+    <!-- 背景音乐 -->
+    <audio id="bgMusic" loop>
+        <source src="img/background-music.mp3" type="audio/mpeg">
+        您的浏览器不支持音频播放
+    </audio>
+
+    <script>
+        // 音乐控制脚本
+        const musicBtn = document.getElementById('musicBtn');
+        const bgMusic = document.getElementById('bgMusic');
+        let isPlaying = false;
+
+        musicBtn.addEventListener('click', function() {
+            if (!isPlaying) {
+                bgMusic.play().then(() => {
+                    isPlaying = true;
+                    musicBtn.textContent = '🔊 暂停音乐';
+                    musicBtn.classList.add('playing');
+                }).catch(error => {
+                    console.log('音乐播放失败:', error);
+                });
+            } else {
+                bgMusic.pause();
+                isPlaying = false;
+                musicBtn.textContent = '🎵 播放音乐';
+                musicBtn.classList.remove('playing');
+            }
+        });
+
+        // 尝试在页面加载后自动播放（某些浏览器可能允许）
+        window.addEventListener('load', function() {
+            bgMusic.play().then(() => {
+                isPlaying = true;
+                musicBtn.textContent = '🔊 暂停音乐';
+                musicBtn.classList.add('playing');
+            }).catch(error => {
+                console.log('自动播放被阻止，需要用户交互');
+            });
+        });
+    </script>
+</body>
+</html>
