@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>美食食谱 - 美食世界</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/recipes.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">美食世界</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="recipes.html" class="active">食谱大全</a></li>
+                    <li><a href="about.html">关于我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="page-header">
+        <div class="container">
+            <h1>美食食谱大全</h1>
+            <p>发现世界各地的美味食谱，让每一餐都成为美好的体验</p>
+        </div>
+    </section>
+
+    <main class="container">
+        <!-- 搜索和过滤区域 -->
+        <section class="search-filter-section">
+            <div class="search-bar">
+                <input type="text" class="search-input" placeholder="搜索您想要的食谱..." id="searchInput">
+                <button class="search-btn" onclick="searchRecipes()">🔍 搜索</button>
+            </div>
+            <div class="filter-tags">
+                <span class="filter-tag active" data-category="all">全部</span>
+                <span class="filter-tag" data-category="main">主菜</span>
+                <span class="filter-tag" data-category="dessert">甜品</span>
+                <span class="filter-tag" data-category="appetizer">开胃菜</span>
+                <span class="filter-tag" data-category="soup">汤品</span>
+                <span class="filter-tag" data-category="salad">沙拉</span>
+            </div>
+        </section>
+
+        <!-- 食谱列表 -->
+        <section class="recipe-list">
+            <div class="recipe-container" id="recipeContainer">
+                <article class="recipe-card" data-category="main">
+                    <div class="recipe-image">
+                        <img src="../images/意大利面.jpeg" alt="意大利面" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzUwIiBoZWlnaHQ9IjIyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPuaEj+Wkp+WIqemdojwvdGV4dD48L3N2Zz4='">
+                        <span class="recipe-difficulty">简单</span>
+                        <span class="recipe-time">⏱ 30分钟</span>
+                    </div>
+                    <div class="recipe-content">
+                        <h2 class="recipe-title">经典意大利面</h2>
+                        <div class="recipe-meta">
+                            <div class="recipe-rating">
+                                <span class="recipe-stars">★★★★★</span>
+                                <span class="recipe-rating-text">(4.8)</span>
+                            </div>
+                            <span class="recipe-servings">👥 2-3人份</span>
+                        </div>
+                        <p class="recipe-description">经典的意大利面配新鲜番茄酱和香草，简单易做，口感丰富，适合家庭聚餐。</p>
+                        <div class="recipe-tags">
+                            <span class="recipe-tag">意式</span>
+                            <span class="recipe-tag">快手菜</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="recipe-card" data-category="appetizer">
+                    <div class="recipe-image">
+                        <img src="../images/寿司.jpeg" alt="寿司" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzUwIiBoZWlnaHQ9IjIyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPuWvv+WPuDwvdGV4dD48L3N2Zz4='">
+                        <span class="recipe-difficulty">中等</span>
+                        <span class="recipe-time">⏱ 45分钟</span>
+                    </div>
+                    <div class="recipe-content">
+                        <h2 class="recipe-title">精致日式寿司</h2>
+                        <div class="recipe-meta">
+                            <div class="recipe-rating">
+                                <span class="recipe-stars">★★★★☆</span>
+                                <span class="recipe-rating-text">(4.6)</span>
+                            </div>
+                            <span class="recipe-servings">👥 2人份</span>
+                        </div>
+                        <p class="recipe-description">新鲜的生鱼片搭配醋米，体验正宗的日式料理文化，健康美味。</p>
+                        <div class="recipe-tags">
+                            <span class="recipe-tag">日式</span>
+                            <span class="recipe-tag">健康</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="recipe-card" data-category="dessert">
+                    <div class="recipe-image">
+                        <img src="../images/巧克力蛋糕.jpg" alt="巧克力蛋糕" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzUwIiBoZWlnaHQ9IjIyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPuW3p+WFi+WKm+ibi+eziTwvdGV4dD48L3N2Zz4='">
+                        <span class="recipe-difficulty">困难</span>
+                        <span class="recipe-time">⏱ 120分钟</span>
+                    </div>
+                    <div class="recipe-content">
+                        <h2 class="recipe-title">浓郁巧克力蛋糕</h2>
+                        <div class="recipe-meta">
+                            <div class="recipe-rating">
+                                <span class="recipe-stars">★★★★★</span>
+                                <span class="recipe-rating-text">(4.9)</span>
+                            </div>
+                            <span class="recipe-servings">👥 6-8人份</span>
+                        </div>
+                        <p class="recipe-description">浓郁的巧克力蛋糕，层次丰富，甜而不腻，是庆祝特殊时刻的完美甜品。</p>
+                        <div class="recipe-tags">
+                            <span class="recipe-tag">甜品</span>
+                            <span class="recipe-tag">庆祝</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="recipe-card" data-category="soup">
+                    <div class="recipe-image">
+                        <img src="../images/蔬菜汤.jpg" alt="蔬菜汤" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzUwIiBoZWlnaHQ9IjIyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPuiFrOiPnOaxpDwvdGV4dD48L3N2Zz4='">
+                        <span class="recipe-difficulty">简单</span>
+                        <span class="recipe-time">⏱ 25分钟</span>
+                    </div>
+                    <div class="recipe-content">
+                        <h2 class="recipe-title">营养蔬菜汤</h2>
+                        <div class="recipe-meta">
+                            <div class="recipe-rating">
+                                <span class="recipe-stars">★★★★☆</span>
+                                <span class="recipe-rating-text">(4.5)</span>
+                            </div>
+                            <span class="recipe-servings">👥 3-4人份</span>
+                        </div>
+                        <p class="recipe-description">新鲜蔬菜熬制的营养汤品，富含维生素，清淡爽口，适合全家享用。</p>
+                        <div class="recipe-tags">
+                            <span class="recipe-tag">健康</span>
+                            <span class="recipe-tag">素食</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="recipe-card" data-category="salad">
+                    <div class="recipe-image">
+                        <img src="../images/沙拉.jpg" alt="水果沙拉" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzUwIiBoZWlnaHQ9IjIyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPuawtOaenOaymeaLiTwvdGV4dD48L3N2Zz4='">
+                        <span class="recipe-difficulty">简单</span>
+                        <span class="recipe-time">⏱ 15分钟</span>
+                    </div>
+                    <div class="recipe-content">
+                        <h2 class="recipe-title">缤纷水果沙拉</h2>
+                        <div class="recipe-meta">
+                            <div class="recipe-rating">
+                                <span class="recipe-stars">★★★★☆</span>
+                                <span class="recipe-rating-text">(4.7)</span>
+                            </div>
+                            <span class="recipe-servings">👥 2人份</span>
+                        </div>
+                        <p class="recipe-description">新鲜时令水果搭配酸奶，颜值与营养并存，是夏日解腻的完美选择。</p>
+                        <div class="recipe-tags">
+                            <span class="recipe-tag">清爽</span>
+                            <span class="recipe-tag">低卡</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="recipe-card" data-category="main">
+                    <div class="recipe-image">
+                        <img src="../images/香草烤鸡.jpg" alt="烤鸡" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzUwIiBoZWlnaHQ9IjIyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPueOr+mjnzwvdGV4dD48L3N2Zz4='">
+                        <span class="recipe-difficulty">中等</span>
+                        <span class="recipe-time">⏱ 90分钟</span>
+                    </div>
+                    <div class="recipe-content">
+                        <h2 class="recipe-title">香草烤鸡</h2>
+                        <div class="recipe-meta">
+                            <div class="recipe-rating">
+                                <span class="recipe-stars">★★★★★</span>
+                                <span class="recipe-rating-text">(4.8)</span>
+                            </div>
+                            <span class="recipe-servings">👥 4-6人份</span>
+                        </div>
+                        <p class="recipe-description">香草调味的烤鸡，外皮酥脆，肉质鲜嫩，适合节日聚餐的主菜选择。</p>
+                        <div class="recipe-tags">
+                            <span class="recipe-tag">烘烤</span>
+                            <span class="recipe-tag">聚餐</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 提交食谱区域 -->
+        <section class="submit-recipe">
+            <h2>分享您的美食创作</h2>
+            <p>有独特的食谱想要分享吗？加入我们的美食社区，与更多人分享您的烹饪智慧！</p>
+            
+            <form class="recipe-form" id="recipe-form">
+                <div class="form-group">
+                    <label for="recipe-name">食谱名称</label>
+                    <input type="text" id="recipe-name" name="recipe-name" placeholder="请输入您的食谱名称" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="recipe-category">食谱分类</label>
+                    <select id="recipe-category" name="recipe-category" required>
+                        <option value="">请选择分类</option>
+                        <option value="main">主菜</option>
+                        <option value="dessert">甜品</option>
+                        <option value="appetizer">开胃菜</option>
+                        <option value="soup">汤品</option>
+                        <option value="salad">沙拉</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="recipe-time">制作时间（分钟）</label>
+                    <input type="number" id="recipe-time" name="recipe-time" min="5" max="300" placeholder="30" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="recipe-servings">几人份</label>
+                    <input type="number" id="recipe-servings" name="recipe-servings" min="1" max="20" placeholder="2" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="recipe-details">制作方法</label>
+                    <textarea id="recipe-details" name="recipe-details" placeholder="请详细描述制作步骤..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="recipe-image">食谱图片链接</label>
+                    <input type="url" id="recipe-image" name="recipe-image" placeholder="https://example.com/image.jpg">
+                </div>
+
+                <button type="submit" class="submit-btn">提交食谱</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 美食世界. 探索美味，享受生活</p>
+    </footer>
+
+    <script src="../js/recipes.js"></script>
+</body>
+</html>

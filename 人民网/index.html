@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人民网 - 网上的人民日报</title>
+    <meta name="description" content="人民网是中国共产党机关报人民日报主办的大型网上信息发布平台">
+    <meta name="keywords" content="人民网,新闻,时政,国际,财经,文化,社会,科技,体育">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div id="app" class="container">
+        <!-- 头部区域 -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div>
+                        <div class="logo">人民网</div>
+                        <div class="logo-subtitle">网上的人民日报</div>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <img src="http://www.people.com.cn/img/2020peopleindex/img/database.png" alt="">
+                    <div class="search-container">
+                        <img src="http://www.people.com.cn/img/2020peopleindex/img/xjp.png" alt="习近平" class="xi-avatar">
+                    </div>
+                    <div class="current-time">{{ currentTime }}</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- 导航栏 -->
+        <nav class="navigation">
+            <ul class="nav-menu">
+                <li><a href="https://www.people.com.cn/" class="active">首页</a></li>
+                <li><a href="https://www.people.com.cn/">时政</a></li>
+                <li><a href="https://www.people.com.cn/">国际</a></li>
+                <li><a href="https://www.people.com.cn/">财经</a></li>
+                <li><a href="https://www.people.com.cn/">文化</a></li>
+                <li><a href="https://www.people.com.cn/">社会</a></li>
+                <li><a href="https://www.people.com.cn/">科技</a></li>
+                <li><a href="https://www.people.com.cn/">体育</a></li>
+                <li><a href="https://www.people.com.cn/">观点</a></li>
+                <li><a href="https://www.people.com.cn/">地方</a></li>
+                <li><a href="http://english.people.com.cn/">English</a></li>
+            </ul>
+        </nav>
+
+        <!-- 主内容区域 -->
+        <main class="main-content">
+            <!-- 左栏主要内容 -->
+            <div class="left-column">
+                <!-- 轮播图区域 -->
+                <div class="carousel-container">
+                    <div v-if="loading.banners" class="loading">
+                        <div class="spinner"></div>
+                        正在加载轮播图...
+                    </div>
+                    <div v-else>
+                        <!-- 轮播图片 -->
+                        <div v-for="(banner, index) in banners" 
+                             :key="banner.id"
+                             class="carousel-slide"
+                             :class="{ active: currentSlide === index }"
+                             @click="openLink(banner.url)">
+                            <img :src="banner.image" :alt="banner.title" class="slide-image">
+                            
+                            <div class="slide-overlay">
+                                <div class="slide-header">
+                                    <div class="slide-logos">
+                                    </div>
+                                    <div class="slide-counter">{{ currentSlide + 1 }}/{{ banners.length }}</div>
+                                </div>
+                                
+                                <div class="slide-content">
+                                    <div class="slide-category">{{ banner.category }}</div>
+                                    <div class="slide-title">{{ banner.title }}</div>
+                                    <div class="slide-subtitle">{{ banner.subtitle }}</div>
+                                </div>
+                                
+                                <div class="slide-footer">
+                                    <div class="slide-time">{{ formatTime(banner.time) }}</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 新：底部灰色控制条 -->
+                        <div class="carousel-controls">
+                            <button class="carousel-nav carousel-prev" @click="prevSlide">‹</button>
+                            <span class="controls-counter">{{ currentSlide + 1 }}/{{ banners.length }}</span>
+                            <button class="carousel-nav carousel-next" @click="nextSlide">›</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 主要新闻区域 -->
+                <section class="news-section">
+                    <h2 class="section-title">
+                        <span>要闻动态</span>
+                        <button @click="refreshNews" class="refresh-btn" :disabled="loading.mainNews">
+                            {{ loading.mainNews ? '刷新中...' : '刷新' }}
+                        </button>
+                    </h2>
+                    <div v-if="loading.mainNews" class="loading">
+                        <div class="spinner"></div>
+                        正在加载新闻...
+                    </div>
+                    <div v-else>
+                        <article v-for="news in mainNews" :key="news.id" class="news-item">
+                            <div class="news-info">
+                                <a :href="news.url" target="_blank" class="news-title">
+                                    <span v-if="news.isHot" class="hot-tag">热</span>
+                                    {{ news.title }}
+                                </a>
+                                <p v-if="news.summary" class="news-summary">{{ news.summary }}</p>
+                                <div class="news-meta">
+                                    <div class="news-meta-left">
+                                        <span class="news-category">{{ news.category }}</span>
+                                        <span class="news-time">{{ formatTime(news.time) }}</span>
+                                    </div>
+                                    <div class="news-views">
+                                        <span>👁</span>
+                                        <span>{{ formatViews(news.views) }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+            </div>
+
+            <!-- 右栏侧边栏 -->
+            <div class="right-column">
+                <!-- 热点话题 -->
+                <section class="sidebar-section">
+                    <h3 class="section-title">热点话题</h3>
+                    <div v-if="loading.hotTopics" class="loading">
+                        <div class="spinner small"></div>
+                    </div>
+                    <div v-else>
+                        <div v-for="topic in hotTopics" :key="topic.id" class="topic-item">
+                            <a :href="topic.url" target="_blank" class="topic-link">
+                                <span class="topic-category">专题</span>
+                                {{ topic.title }}
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 侧边栏新闻 -->
+                <section class="sidebar-section">
+                    <h3 class="section-title">图片新闻</h3>
+                    <div v-if="loading.sideNews" class="loading">
+                        <div class="spinner small"></div>
+                    </div>
+                    <div v-else>
+                        <div v-for="news in sideNews" :key="news.id" class="sidebar-item">
+                            <a :href="news.url" target="_blank" class="sidebar-link">
+                                <div class="sidebar-content">
+                                    <h4 class="sidebar-title">{{ news.title }}</h4>
+                                    <div class="sidebar-meta">
+                                        <span class="sidebar-category">{{ news.category }}</span>
+                                        <span class="sidebar-time">{{ formatTime(news.time) }}</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- 页脚 -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2025 人民网 版权所有 | 京ICP证000006号</p>
+                <p>本项目仅作学习交流使用，所有内容版权归人民网所有</p>
+                <p>项目技术栈：Vue 2 + Express + Node.js</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

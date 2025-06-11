@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生管理 - 学生信息管理系统</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/students.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>学生管理系统</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">首页</a>
+                </li>
+                <li class="nav-item">
+                    <a href="students.html" class="nav-link active">学生管理</a>
+                </li>
+                <li class="nav-item">
+                    <a href="statistics.html" class="nav-link">统计分析</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main class="main-content">
+        <div class="container">
+            <!-- 页面标题和操作栏 -->
+            <div class="page-header">
+                <h1>学生信息管理</h1>
+                <div class="header-actions">
+                    <button class="btn btn-primary" id="addStudentBtn">
+                        ➕ 添加学生
+                    </button>
+                    <button class="btn btn-secondary" id="exportBtn">
+                        📤 导出数据
+                    </button>
+                </div>
+            </div>
+
+            <!-- 搜索和筛选 -->
+            <div class="search-filter-section">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="搜索学生姓名、学号...">
+                    <button id="searchBtn">🔍</button>
+                </div>
+                <div class="filter-box">
+                    <select id="gradeFilter">
+                        <option value="">所有年级</option>
+                        <option value="大一">大一</option>
+                        <option value="大二">大二</option>
+                        <option value="大三">大三</option>
+                        <option value="大四">大四</option>
+                    </select>
+                    <select id="majorFilter">
+                        <option value="">所有专业</option>
+                        <option value="计算机科学">计算机科学</option>
+                        <option value="软件工程">软件工程</option>
+                        <option value="网络工程">网络工程</option>
+                        <option value="信息安全">信息安全</option>
+                    </select>
+                    <button id="clearFilterBtn">清空筛选</button>
+                </div>
+            </div>
+
+            <!-- 学生列表 -->
+            <div class="students-table-container">
+                <table class="students-table" id="studentsTable">
+                    <thead>
+                        <tr>
+                            <th>
+                                <input type="checkbox" id="selectAllCheckbox">
+                            </th>
+                            <th>学号</th>
+                            <th>姓名</th>
+                            <th>性别</th>
+                            <th>年级</th>
+                            <th>专业</th>
+                            <th>联系电话</th>
+                            <th>邮箱</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentsTableBody">
+                        <!-- 动态加载学生数据 -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 分页 -->
+            <div class="pagination-container">
+                <div class="pagination" id="pagination">
+                    <!-- 动态生成分页 -->
+                </div>
+                <div class="page-info">
+                    共 <span id="totalCount">0</span> 名学生，
+                    第 <span id="currentPageNum">1</span> 页，
+                    共 <span id="totalPages">1</span> 页
+                </div>
+            </div>
+
+            <!-- 批量操作 -->
+            <div class="bulk-actions" id="bulkActions" style="display: none;">
+                <span>已选择 <span id="selectedCount">0</span> 名学生</span>
+                <button class="btn btn-danger" id="bulkDeleteBtn">批量删除</button>
+                <button class="btn btn-secondary" id="bulkExportBtn">批量导出</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- 学生信息模态框 -->
+    <div class="modal" id="studentModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">添加学生</h3>
+                <span class="close-btn" id="closeModal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form class="student-form" id="studentForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="studentId">学号 *</label>
+                            <input type="text" id="studentId" name="studentId" required>
+                            <span class="error-message" id="studentIdError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="studentName">姓名 *</label>
+                            <input type="text" id="studentName" name="studentName" required>
+                            <span class="error-message" id="studentNameError"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="gender">性别 *</label>
+                            <select id="gender" name="gender" required>
+                                <option value="">请选择</option>
+                                <option value="男">男</option>
+                                <option value="女">女</option>
+                            </select>
+                            <span class="error-message" id="genderError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="grade">年级 *</label>
+                            <select id="grade" name="grade" required>
+                                <option value="">请选择</option>
+                                <option value="大一">大一</option>
+                                <option value="大二">大二</option>
+                                <option value="大三">大三</option>
+                                <option value="大四">大四</option>
+                            </select>
+                            <span class="error-message" id="gradeError"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="major">专业 *</label>
+                            <select id="major" name="major" required>
+                                <option value="">请选择</option>
+                                <option value="计算机科学">计算机科学</option>
+                                <option value="软件工程">软件工程</option>
+                                <option value="网络工程">网络工程</option>
+                                <option value="信息安全">信息安全</option>
+                            </select>
+                            <span class="error-message" id="majorError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">联系电话</label>
+                            <input type="tel" id="phone" name="phone">
+                            <span class="error-message" id="phoneError"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">邮箱</label>
+                        <input type="email" id="email" name="email">
+                        <span class="error-message" id="emailError"></span>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" id="cancelBtn">取消</button>
+                        <button type="submit" class="btn btn-primary" id="submitBtn">保存</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- 确认删除模态框 -->
+    <div class="modal" id="confirmModal">
+        <div class="modal-content small">
+            <div class="modal-header">
+                <h3>确认删除</h3>
+                <span class="close-btn" id="closeConfirmModal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p id="confirmMessage">确定要删除这名学生吗？此操作不可撤销。</p>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelDeleteBtn">取消</button>
+                    <button type="button" class="btn btn-danger" id="confirmDeleteBtn">确定删除</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 提示消息 -->
+    <div class="toast" id="toast">
+        <span id="toastMessage"></span>
+    </div>
+
+    <!-- 加载指示器 -->
+    <div class="loading" id="loading" style="display: none;">
+        <div class="spinner"></div>
+        <span>加载中...</span>
+    </div>
+
+    <script type="module" src="js/students.js"></script>
+</body>
+</html>

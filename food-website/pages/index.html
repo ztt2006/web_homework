@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>美食世界 - 探索美味人生</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">美食世界</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">首页</a></li>
+                    <li><a href="recipes.html">食谱大全</a></li>
+                    <li><a href="about.html">关于我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section class="hero-section">
+        <button class="prev-button">‹</button>
+        <button class="next-button">›</button>
+        <div class="container">
+            <div class="hero-content">
+                <h1>欢迎来到美食世界</h1>
+                <p>在这里，您可以找到各种美食的灵感和食谱，尽情享受烹饪的乐趣</p>
+                <a href="recipes.html" class="cta-button">探索美食食谱</a>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        <!-- 欢迎区域 -->
+        <section class="welcome">
+            <h2>探索美味</h2>
+            <p>每一道菜都有它的故事，每一种味道都承载着情感。让我们一起在美食的世界里探索，发现生活中的美好时刻。</p>
+        </section>
+
+        <!-- 推荐美食区域 -->
+        <section class="recommendations">
+            <h2>今日推荐</h2>
+            <div class="food-grid">
+                <div class="food-item">
+                    <div class="food-item-image">
+                        <img src="../images/意大利面.jpeg" alt="意大利面" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPuaEj+Wkp+WIqemdojwvdGV4dD48L3N2Zz4='">
+                        <div class="food-item-overlay"></div>
+                    </div>
+                    <div class="food-item-content">
+                        <h3>经典意大利面</h3>
+                        <div class="food-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-text">(4.8分)</span>
+                        </div>
+                        <p>经典的意大利面配新鲜番茄酱，简单易做，口感丰富，是家庭聚餐的完美选择。</p>
+                        <span class="food-tag">简单易做</span>
+                    </div>
+                </div>
+
+                <div class="food-item">
+                    <div class="food-item-image">
+                        <img src="../images/寿司.jpeg" alt="寿司" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPuWvv+WPuDwvdGV4dD48L3N2Zz4='">
+                        <div class="food-item-overlay"></div>
+                    </div>
+                    <div class="food-item-content">
+                        <h3>精致日式寿司</h3>
+                        <div class="food-rating">
+                            <span class="stars">★★★★☆</span>
+                            <span class="rating-text">(4.6分)</span>
+                        </div>
+                        <p>新鲜的生鱼片搭配醋米，健康美味，体验正宗的日式料理文化。</p>
+                        <span class="food-tag">健康营养</span>
+                    </div>
+                </div>
+
+                <div class="food-item">
+                    <div class="food-item-image">
+                        <img src="../images/巧克力蛋糕.jpg" alt="巧克力蛋糕" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPuW3p+WFi+WKm+ibi+eziTwvdGV4dD48L3N2Zz4='">
+                        <div class="food-item-overlay"></div>
+                    </div>
+                    <div class="food-item-content">
+                        <h3>浓郁巧克力蛋糕</h3>
+                        <div class="food-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-text">(4.9分)</span>
+                        </div>
+                        <p>浓郁的巧克力蛋糕，层次丰富，甜而不腻，是庆祝特殊时刻的完美甜品。</p>
+                        <span class="food-tag">甜蜜享受</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 特色功能区域 -->
+        <section class="features">
+            <h2>为什么选择我们</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <span class="feature-icon">📚</span>
+                    <h3>丰富食谱</h3>
+                    <p>汇集全球各地美食，从家常菜到高级料理，应有尽有</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">👨‍🍳</span>
+                    <h3>专业指导</h3>
+                    <p>专业厨师团队提供详细步骤，让烹饪变得简单易懂</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🥗</span>
+                    <h3>营养健康</h3>
+                    <p>注重营养搭配，提供健康美味的饮食选择</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🎯</span>
+                    <h3>个性定制</h3>
+                    <p>根据个人喜好和需求，推荐最适合的美食方案</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 美食世界. 探索美味，享受生活</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/carousel.js"></script>
+</body>
+</html>

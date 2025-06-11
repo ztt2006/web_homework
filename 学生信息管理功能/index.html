@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生信息管理系统</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>学生管理系统</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link active">首页</a>
+                </li>
+                <li class="nav-item">
+                    <a href="students.html" class="nav-link">学生管理</a>
+                </li>
+                <li class="nav-item">
+                    <a href="statistics.html" class="nav-link">统计分析</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main class="main-content">
+        <!-- 轮播图 -->
+        <section class="hero-slider">
+            <div class="slider-container">
+                <div class="slide active">
+                    <div class="slide-content">
+                        <h1>欢迎使用学生信息管理系统</h1>
+                        <p>高效管理学生信息，提升教学管理效率</p>
+                        <button class="cta-button" id="startBtn">开始使用</button>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="slide-content">
+                        <h1>智能数据分析</h1>
+                        <p>多维度统计分析，洞察学生学习状况</p>
+                        <button class="cta-button" id="analysisBtn">查看统计</button>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="slide-content">
+                        <h1>便捷信息管理</h1>
+                        <p>添加、编辑、删除学生信息，操作简单快捷</p>
+                        <button class="cta-button" id="manageBtn">管理学生</button>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-nav">
+                <button class="prev-btn">❮</button>
+                <button class="next-btn">❯</button>
+            </div>
+            <div class="slider-dots">
+                <span class="dot active" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+                <span class="dot" data-slide="2"></span>
+            </div>
+        </section>
+
+        <!-- 功能模块 -->
+        <section class="features-section">
+            <div class="container">
+                <h2 class="section-title">系统功能</h2>
+                <div class="features-grid" id="featuresGrid">
+                    <!-- 动态加载功能模块 -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 快速统计 -->
+        <section class="quick-stats">
+            <div class="container">
+                <h2 class="section-title">快速统计</h2>
+                <div class="stats-grid" id="statsGrid">
+                    <!-- 动态加载统计数据 -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 最近添加的学生 -->
+        <section class="recent-students">
+            <div class="container">
+                <h2 class="section-title">最近添加的学生</h2>
+                <div class="students-list" id="recentStudentsList">
+                    <!-- 动态加载学生列表 -->
+                </div>
+                <div class="view-all-btn-container">
+                    <button class="view-all-btn" id="viewAllBtn">查看全部学生</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 学生信息管理系统. 保留所有权利.</p>
+        </div>
+    </footer>
+
+    <!-- 加载提示 -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="spinner"></div>
+        <p>加载中...</p>
+    </div>
+
+    <!-- 提示消息 -->
+    <div class="toast" id="toast">
+        <span id="toastMessage"></span>
+    </div>
+
+    <script type="module" src="js/index.js"></script>
+</body>
+</html>
