@@ -54,30 +54,6 @@
                 <!-- 动态加载统计卡片 -->
             </div>
 
-            <!-- 图表区域 -->
-            <div class="charts-section">
-                <div class="chart-container">
-                    <h3>年级分布</h3>
-                    <div class="chart-wrapper">
-                        <canvas id="gradeChart" width="400" height="300"></canvas>
-                    </div>
-                </div>
-                
-                <div class="chart-container">    
-                    <h3>专业分布</h3>
-                    <div class="chart-wrapper">
-                        <canvas id="majorChart" width="400" height="300"></canvas>
-                    </div>
-                </div>
-                
-                <div class="chart-container full-width">
-                    <h3>性别比例</h3>
-                    <div class="chart-wrapper">
-                        <canvas id="genderChart" width="400" height="200"></canvas>
-                    </div>
-                </div>
-            </div>
-
             <!-- 详细统计表格 -->
             <div class="detailed-stats-section">
                 <h3>详细统计</h3>
@@ -89,26 +65,12 @@
                                 <th>项目</th>
                                 <th>人数</th>
                                 <th>占比</th>
-                                <th>操作</th>
                             </tr>
                         </thead>
                         <tbody id="detailedStatsBody">
                             <!-- 动态加载统计数据 -->
                         </tbody>
                     </table>
-                </div>
-            </div>
-
-            <!-- 数据趋势 -->
-            <div class="trend-section">
-                <h3>数据趋势</h3>
-                <div class="trend-filters">
-                    <button class="trend-btn active" data-period="week">最近一周</button>
-                    <button class="trend-btn" data-period="month">最近一月</button>
-                    <button class="trend-btn" data-period="year">最近一年</button>
-                </div>
-                <div class="trend-chart-container">
-                    <canvas id="trendChart" width="800" height="400"></canvas>
                 </div>
             </div>
         </div>
@@ -120,19 +82,6 @@
             <p>&copy; 2025 学生信息管理系统. 保留所有权利.</p>
         </div>
     </footer>
-
-    <!-- 详情模态框 -->
-    <div class="modal" id="detailModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 id="detailModalTitle">统计详情</h3>
-                <span class="close-btn" id="closeDetailModal">&times;</span>
-            </div>
-            <div class="modal-body" id="detailModalBody">
-                <!-- 动态加载详情内容 -->
-            </div>
-        </div>
-    </div>
 
     <!-- 提示消息 -->
     <div class="toast" id="toast">
