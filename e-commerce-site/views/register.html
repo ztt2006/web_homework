@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册 - 数码科技商城</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/auth.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <!-- 头部 -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <a href="/">数码科技商城</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/#products">产品</a></li>
+                    <li><a href="/#about">关于我们</a></li>
+                    <li><a href="/#contact">联系我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 注册页面主体 -->
+    <div class="auth-page">
+        <div class="auth-background">
+            <!-- 动态背景元素 -->
+            <div class="bg-shape shape1"></div>
+            <div class="bg-shape shape2"></div>
+            <div class="bg-shape shape3"></div>
+            <div class="bg-shape shape4"></div>
+        </div>
+        
+        <div class="auth-wrapper">
+            <div class="auth-card register-card">
+                <!-- 注册表单左侧 -->
+                <div class="auth-left">
+                    <div class="auth-brand">
+                        <i class="fa fa-user-plus"></i>
+                        <h1>加入我们</h1>
+                        <p>开启您的数码购物之旅</p>
+                    </div>
+                    
+                    <div class="auth-features">
+                        <div class="feature-item">
+                            <i class="fa fa-gift"></i>
+                            <div>
+                                <h3>新用户礼包</h3>
+                                <p>注册即送100元优惠券大礼包</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fa fa-star"></i>
+                            <div>
+                                <h3>会员特权</h3>
+                                <p>专享折扣、优先发货、生日特惠</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fa fa-bell"></i>
+                            <div>
+                                <h3>新品通知</h3>
+                                <p>第一时间获取新品上架信息</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fa fa-shield"></i>
+                            <div>
+                                <h3>信息安全</h3>
+                                <p>严格保护您的个人隐私信息</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 注册表单右侧 -->
+                <div class="auth-right">
+                    <div class="auth-form-container">
+                        <div class="auth-header">
+                            <h2>创建新账户</h2>
+                            <p>填写以下信息完成注册</p>
+                        </div>
+
+                        <form id="register-form" class="auth-form">
+                            <div class="form-group">
+                                <div class="input-wrapper">
+                                    <i class="fa fa-user input-icon"></i>
+                                    <input type="text" id="username" name="username" placeholder="请输入用户名" required>
+                                </div>
+                                <span class="error-message" id="username-error"></span>
+                                <div class="input-hint">
+                                    <small>用户名长度3-20个字符，支持中英文、数字</small>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="input-wrapper">
+                                    <i class="fa fa-envelope input-icon"></i>
+                                    <input type="email" id="email" name="email" placeholder="请输入邮箱地址" required>
+                                </div>
+                                <span class="error-message" id="email-error"></span>
+                                <div class="input-hint">
+                                    <small>用于账户验证和密码找回</small>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="input-wrapper">
+                                    <i class="fa fa-phone input-icon"></i>
+                                    <input type="tel" id="phone" name="phone" placeholder="请输入手机号码（可选）">
+                                </div>
+                                <span class="error-message" id="phone-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="input-wrapper">
+                                    <i class="fa fa-lock input-icon"></i>
+                                    <input type="password" id="password" name="password" placeholder="请输入密码" required>
+                                    <i class="fa fa-eye password-toggle" id="password-toggle"></i>
+                                </div>
+                                <span class="error-message" id="password-error"></span>
+                                <div class="password-strength">
+                                    <div class="strength-bar">
+                                        <div class="strength-fill" id="password-strength-fill"></div>
+                                    </div>
+                                    <small id="password-strength-text">密码强度：弱</small>
+                                </div>
+                                <div class="input-hint">
+                                    <small>密码长度6-20位，建议包含数字、字母和特殊字符</small>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="input-wrapper">
+                                    <i class="fa fa-lock input-icon"></i>
+                                    <input type="password" id="confirm-password" name="confirm-password" placeholder="请确认密码" required>
+                                    <i class="fa fa-eye password-toggle" id="confirm-password-toggle"></i>
+                                </div>
+                                <span class="error-message" id="confirm-password-error"></span>
+                            </div>
+
+                            <div class="form-agreement">
+                                <label class="checkbox-wrapper">
+                                    <input type="checkbox" id="agree-terms" required>
+                                    <span class="checkmark"></span>
+                                    我已阅读并同意
+                                    <a href="#" class="terms-link">《用户协议》</a>
+                                    和
+                                    <a href="#" class="privacy-link">《隐私政策》</a>
+                                </label>
+                            </div>
+
+                            <button type="submit" class="btn-auth" id="register-btn">
+                                <span class="btn-text">立即注册</span>
+                                <span class="btn-loading" style="display: none;">
+                                    <i class="fa fa-spinner fa-spin"></i> 注册中...
+                                </span>
+                            </button>
+
+                            <div class="divider">
+                                <span>或</span>
+                            </div>
+
+                            <div class="social-login">
+                                <button type="button" class="social-btn wechat-btn">
+                                    <i class="fa fa-wechat"></i>
+                                    微信注册
+                                </button>
+                                <button type="button" class="social-btn qq-btn">
+                                    <i class="fa fa-qq"></i>
+                                    QQ注册
+                                </button>
+                            </div>
+
+                            <div id="register-message" class="message"></div>
+                        </form>
+
+                        <div class="auth-footer">
+                            <p>已经有账号了？<a href="/login" class="auth-link">立即登录</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-section">
+                <h3>数码科技商城</h3>
+                <p>提供高品质数码产品和专业服务</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fa fa-weibo"></i></a>
+                    <a href="#"><i class="fa fa-wechat"></i></a>
+                    <a href="#"><i class="fa fa-qq"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>快速链接</h3>
+                <ul>
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/#products">产品</a></li>
+                    <li><a href="/#about">关于我们</a></li>
+                    <li><a href="/#contact">联系我们</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>客户服务</h3>
+                <ul>
+                    <li><a href="#">帮助中心</a></li>
+                    <li><a href="#">退换政策</a></li>
+                    <li><a href="#">配送信息</a></li>
+                    <li><a href="#">支付方式</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 数码科技商城. 保留所有权利</p>
+        </div>
+    </footer>
+
+    <script src="/js/register.js"></script>
+</body>
+</html>

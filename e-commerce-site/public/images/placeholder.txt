@@ -1,0 +1,12 @@
+请下载以下图片到此目录（公开免费商用图片）：
+
+1. banner1.jpg - 智能手机或电子产品展示图
+2. banner2.jpg - 电脑配件或电子设备图
+3. banner3.jpg - 智能家居产品图
+4. phone.jpg - 手机产品图
+5. laptop.jpg - 笔记本电脑产品图
+6. headphones.jpg - 耳机产品图
+7. smartwatch.jpg - 智能手表产品图
+8. tablet.jpg - 平板电脑产品图
+9. powerbank.jpg - 移动电源产品图
+10. hero-bg.jpg - 网站背景图 
