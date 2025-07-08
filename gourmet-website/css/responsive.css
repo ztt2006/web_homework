@@ -1,0 +1,726 @@
+/* 响应式设计样式 */
+
+/* 超大屏幕 (≥1400px) */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+    }
+    
+    .hero-section {
+        height: 100vh;
+        min-height: 700px;
+    }
+    
+    .slide-title {
+        font-size: var(--font-size-5xl);
+    }
+    
+    .featured-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .categories-grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+/* 大屏幕 (1200px - 1399px) */
+@media (min-width: 1200px) and (max-width: 1399px) {
+    .container {
+        max-width: 1140px;
+    }
+    
+    .featured-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .categories-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .slide-title {
+        font-size: var(--font-size-4xl);
+    }
+    
+    .slide-subtitle {
+        font-size: var(--font-size-lg);
+    }
+}
+
+/* 中等屏幕 (992px - 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .container {
+        max-width: 960px;
+    }
+    
+    .featured-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-lg);
+    }
+    
+    .categories-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-lg);
+    }
+    
+    .nav-list {
+        gap: var(--spacing-lg);
+    }
+    
+    .search-input {
+        width: 180px;
+    }
+    
+    .search-input:focus {
+        width: 220px;
+    }
+    
+    .slide-title {
+        font-size: var(--font-size-3xl);
+    }
+    
+    .section-title {
+        font-size: var(--font-size-3xl);
+    }
+    
+    .banner-nav-btn {
+        width: 55px;
+        height: 55px;
+    }
+    
+    .category-icon {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+/* 小屏幕 (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .container {
+        max-width: 720px;
+    }
+    
+    /* 导航栏适配 */
+    .nav-toggle {
+        display: flex;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100vh;
+        background: var(--white);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: left var(--transition);
+        z-index: 999;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .nav-list {
+        flex-direction: column;
+        gap: var(--spacing-2xl);
+        text-align: center;
+    }
+    
+    .nav-link {
+        font-size: var(--font-size-lg);
+        padding: var(--spacing-md) var(--spacing-xl);
+    }
+    
+    /* Hero区域适配 */
+    .hero-section {
+        height: 70vh;
+        min-height: 500px;
+    }
+    
+    .slide-title {
+        font-size: var(--font-size-2xl);
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .slide-subtitle {
+        font-size: var(--font-size-base);
+        margin-bottom: var(--spacing-xl);
+    }
+    
+    .banner-nav {
+        padding: 0 var(--spacing-md);
+    }
+    
+    .banner-nav-btn {
+        width: 50px;
+        height: 50px;
+        font-size: var(--font-size-lg);
+    }
+    
+    .banner-indicators {
+        bottom: var(--spacing-xl);
+        gap: var(--spacing-sm);
+    }
+    
+    .indicator {
+        width: 50px;
+        height: 5px;
+    }
+    
+    /* 网格布局适配 */
+    .featured-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-lg);
+    }
+    
+    .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-lg);
+    }
+    
+    /* 卡片适配 */
+    .featured-card .card-content {
+        padding: var(--spacing-lg);
+    }
+    
+    .category-card {
+        padding: var(--spacing-xl);
+    }
+    
+    .category-icon {
+        width: 60px;
+        height: 60px;
+        font-size: var(--font-size-2xl);
+    }
+    
+    /* 搜索框适配 */
+    .search-input {
+        width: 150px;
+    }
+    
+    .search-input:focus {
+        width: 200px;
+    }
+    
+    /* 区域间距适配 */
+    .featured-section,
+    .categories-section {
+        padding: var(--spacing-2xl) 0;
+    }
+    
+    .section-title {
+        font-size: var(--font-size-2xl);
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-lg);
+    }
+}
+
+/* 超小屏幕 (576px - 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
+    .container {
+        max-width: 540px;
+        padding: 0 var(--spacing-sm);
+    }
+    
+    /* Hero区域适配 */
+    .hero-section {
+        height: 60vh;
+        min-height: 450px;
+    }
+    
+    .slide-content {
+        padding: 0 var(--spacing-sm);
+    }
+    
+    .slide-title {
+        font-size: var(--font-size-xl);
+    }
+    
+    .slide-subtitle {
+        font-size: var(--font-size-sm);
+    }
+    
+    .banner-nav {
+        display: none;
+    }
+    
+    .banner-indicators {
+        bottom: var(--spacing-lg);
+    }
+    
+    .indicator {
+        width: 40px;
+        height: 4px;
+    }
+    
+    /* 网格布局适配 */
+    .featured-grid,
+    .categories-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    /* 导航栏适配 */
+    .nav-container {
+        padding: 0 var(--spacing-sm);
+    }
+    
+    .nav-logo {
+        font-size: var(--font-size-xl);
+    }
+    
+    .nav-logo i {
+        font-size: var(--font-size-2xl);
+    }
+    
+    .search-box {
+        width: 100%;
+        max-width: 280px;
+    }
+    
+    .search-input {
+        width: 100%;
+    }
+    
+    /* 卡片适配 */
+    .featured-card .card-content {
+        padding: var(--spacing-lg);
+    }
+    
+    .category-card {
+        padding: var(--spacing-lg);
+    }
+    
+    .category-icon {
+        width: 50px;
+        height: 50px;
+        font-size: var(--font-size-xl);
+    }
+    
+    /* 按钮适配 */
+    .cta-button {
+        padding: var(--spacing-sm) var(--spacing-lg);
+        font-size: var(--font-size-base);
+    }
+    
+    /* 统计数据适配 */
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .stat-number {
+        font-size: var(--font-size-4xl);
+    }
+    
+    /* 筛选器适配 */
+    .menu-filters {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+    
+    .filter-btn {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+/* 极小屏幕 (≤575px) */
+@media (max-width: 575px) {
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+    
+    /* 导航栏适配 */
+    .header {
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .navbar {
+        padding: var(--spacing-sm) 0;
+    }
+    
+    .nav-container {
+        padding: 0 var(--spacing-sm);
+    }
+    
+    .nav-logo {
+        font-size: var(--font-size-lg);
+    }
+    
+    .nav-logo i {
+        font-size: var(--font-size-xl);
+        margin-right: var(--spacing-xs);
+    }
+    
+    .search-box {
+        display: none;
+    }
+    
+    .nav-actions {
+        gap: var(--spacing-sm);
+    }
+    
+    /* Hero区域适配 */
+    .hero-section {
+        height: 50vh;
+        min-height: 400px;
+    }
+    
+    .slide-content {
+        padding: 0 var(--spacing-sm);
+        max-width: 100%;
+    }
+    
+    .slide-title {
+        font-size: var(--font-size-lg);
+        margin-bottom: var(--spacing-sm);
+        line-height: 1.3;
+    }
+    
+    .slide-subtitle {
+        font-size: var(--font-size-xs);
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .cta-button {
+        padding: var(--spacing-xs) var(--spacing-md);
+        font-size: var(--font-size-sm);
+    }
+    
+    .banner-nav {
+        display: none;
+    }
+    
+    .banner-indicators {
+        bottom: var(--spacing-md);
+        gap: var(--spacing-xs);
+    }
+    
+    .indicator {
+        width: 30px;
+        height: 3px;
+    }
+    
+    /* 区域间距适配 */
+    .featured-section,
+    .categories-section,
+    .stats-section {
+        padding: var(--spacing-xl) 0;
+    }
+    
+    .section-header {
+        margin-bottom: var(--spacing-2xl);
+    }
+    
+    .section-title {
+        font-size: var(--font-size-xl);
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    .section-subtitle {
+        font-size: var(--font-size-sm);
+    }
+    
+    /* 网格布局适配 */
+    .featured-grid,
+    .categories-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+        margin-top: var(--spacing-xl);
+    }
+    
+    /* 卡片适配 */
+    .featured-card {
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .featured-card .card-image {
+        height: 200px;
+    }
+    
+    .featured-card .card-content {
+        padding: var(--spacing-md);
+    }
+    
+    .featured-card .card-title {
+        font-size: var(--font-size-lg);
+    }
+    
+    .featured-card .card-description {
+        font-size: var(--font-size-sm);
+    }
+    
+    .featured-card .price {
+        font-size: var(--font-size-lg);
+    }
+    
+    .category-card {
+        padding: var(--spacing-md);
+    }
+    
+    .category-icon {
+        width: 40px;
+        height: 40px;
+        font-size: var(--font-size-lg);
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .category-title {
+        font-size: var(--font-size-lg);
+        margin-bottom: var(--spacing-xs);
+    }
+    
+    .category-description {
+        font-size: var(--font-size-sm);
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .category-btn {
+        padding: var(--spacing-xs) var(--spacing-md);
+        font-size: var(--font-size-sm);
+    }
+    
+    /* 统计数据适配 */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
+    }
+    
+    .stat-number {
+        font-size: var(--font-size-3xl);
+    }
+    
+    .stat-label {
+        font-size: var(--font-size-sm);
+    }
+    
+    /* 筛选器适配 */
+    .menu-filters {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: var(--spacing-xs);
+    }
+    
+    .filter-btn {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: var(--font-size-xs);
+        min-width: auto;
+    }
+    
+    /* 返回顶部按钮适配 */
+    .scroll-to-top {
+        bottom: var(--spacing-md);
+        right: var(--spacing-md);
+        width: 40px;
+        height: 40px;
+        font-size: var(--font-size-base);
+    }
+    
+    /* 页脚适配 */
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+        padding: var(--spacing-xl) 0;
+        text-align: center;
+    }
+    
+    .footer-section {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: var(--spacing-lg);
+    }
+    
+    .footer-section:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+    
+    .footer-title {
+        font-size: var(--font-size-lg);
+    }
+    
+    .footer-subtitle {
+        font-size: var(--font-size-base);
+    }
+    
+    .social-links {
+        justify-content: center;
+        gap: var(--spacing-sm);
+    }
+    
+    .social-link {
+        width: 40px;
+        height: 40px;
+        font-size: var(--font-size-base);
+    }
+    
+    .footer-links a {
+        padding-left: 0;
+        font-size: var(--font-size-sm);
+    }
+    
+    .footer-links a::before {
+        display: none;
+    }
+    
+    .contact-info {
+        align-items: center;
+    }
+    
+    .contact-info p {
+        font-size: var(--font-size-sm);
+        justify-content: center;
+    }
+    
+    .footer-bottom {
+        padding: var(--spacing-md) 0;
+    }
+    
+    .footer-bottom p {
+        font-size: var(--font-size-xs);
+    }
+}
+
+/* 横屏手机适配 */
+@media (max-width: 767px) and (orientation: landscape) {
+    .hero-section {
+        height: 100vh;
+        min-height: auto;
+    }
+    
+    .slide-content {
+        max-width: 600px;
+    }
+    
+    .slide-title {
+        font-size: var(--font-size-2xl);
+    }
+    
+    .slide-subtitle {
+        font-size: var(--font-size-base);
+    }
+    
+    .banner-indicators {
+        bottom: var(--spacing-sm);
+    }
+}
+
+/* 超宽屏适配 */
+@media (min-width: 1800px) {
+    .container {
+        max-width: 1600px;
+    }
+    
+    .slide-title {
+        font-size: 4rem;
+    }
+    
+    .slide-subtitle {
+        font-size: var(--font-size-2xl);
+    }
+    
+    .featured-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .categories-grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+/* 打印样式 */
+@media print {
+    * {
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+    
+    .header,
+    .banner-nav,
+    .banner-indicators,
+    .scroll-to-top,
+    .social-links {
+        display: none !important;
+    }
+    
+    .hero-section {
+        height: auto !important;
+        min-height: auto !important;
+        page-break-after: always;
+    }
+    
+    .featured-section,
+    .categories-section {
+        page-break-inside: avoid;
+    }
+    
+    .featured-grid,
+    .categories-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    
+    .container {
+        max-width: none !important;
+        padding: 0 !important;
+    }
+}
+
+/* 高密度显示屏适配 */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .slide-bg,
+    .featured-card .card-image img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* 减少动画模式 */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .scroll-to-top,
+    .featured-card,
+    .category-card {
+        transform: none !important;
+    }
+}
+
+/* 暗色主题偏好 */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-primary: #1a1a1a;
+        --bg-secondary: #2d2d2d;
+        --text-primary: #ffffff;
+        --text-secondary: #cccccc;
+        --border-color: #404040;
+    }
+}
+
+/* 高对比度模式 */
+@media (prefers-contrast: high) {
+    :root {
+        --shadow: none;
+        --shadow-lg: none;
+    }
+    
+    .featured-card,
+    .category-card {
+        border: 2px solid var(--text-primary);
+    }
+    
+    .banner-nav-btn,
+    .indicator {
+        border: 2px solid var(--white);
+    }
+} 

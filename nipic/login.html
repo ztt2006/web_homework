@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录 - 昵图网</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <header class="top-header">
+        <div class="header-container">
+            <div class="logo-section">
+                <img src="./images/logo.png" alt="昵图网" class="logo">
+                <span class="logo-text">共享创意经验</span>
+            </div>
+            <nav class="main-nav">
+                <a href="command.html" class="nav-link">首页</a>
+                <a href="index.html" class="nav-link active">设计</a>
+                <a href="#" class="nav-link">摄影</a>
+                <div class="nav-link dropdown">
+                    <a href="#" class="dropdown-link">多媒体</a>
+                    <div class="dropdown-menu">
+                        <div class="menu-content">
+                            <div class="menu-column">
+                                <div class="menu-category">
+                                    <h4 class="category-title">PPT</h4>
+                                    <a href="#" class="menu-item">计划总结</a>
+                                    <a href="#" class="menu-item">课件技法</a>
+                                    <a href="#" class="menu-item">商务科技</a>
+                                    <a href="#" class="menu-item">教育培训</a>
+                                    <a href="#" class="menu-item">节庆模板</a>
+                                    <a href="#" class="menu-item">餐饮美食</a>
+                                    <a href="#" class="menu-item">白领求职</a>
+                                    <a href="#" class="menu-item">水果卡通版</a>
+                                    <a href="#" class="menu-item">PPT图表模板</a>
+                                    <a href="#" class="menu-item">PPT背景图模板</a>
+                                    <a href="#" class="menu-item">其他</a>
+                                </div>
+                                <div class="menu-category">
+                                    <h4 class="category-title">影视编辑</h4>
+                                    <a href="#" class="menu-item">合成动画素材</a>
+                                    <a href="#" class="menu-item">视频制作软件模板</a>
+                                    <a href="#" class="menu-item">AE模板素材</a>
+                                    <a href="#" class="menu-item">影音转换素材</a>
+                                    <a href="#" class="menu-item">其他</a>
+                                </div>
+                            </div>
+                            <div class="menu-column">
+                                <div class="menu-category">
+                                    <h4 class="category-title">实拍模板</h4>
+                                    <a href="#" class="menu-item">白领款头</a>
+                                    <a href="#" class="menu-item">城市风景</a>
+                                    <a href="#" class="menu-item">文化艺术</a>
+                                    <a href="#" class="menu-item">动物植物</a>
+                                    <a href="#" class="menu-item">人物</a>
+                                    <a href="#" class="menu-item">生活历史</a>
+                                    <a href="#" class="menu-item">科技数码</a>
+                                    <a href="#" class="menu-item">其他</a>
+                                </div>
+                                <div class="menu-category">
+                                    <h4 class="category-title">字体下载</h4>
+                                    <a href="#" class="menu-item">中文字体</a>
+                                    <a href="#" class="menu-item">英文字体</a>
+                                    <a href="#" class="menu-item">艺术字体</a>
+                                    <a href="#" class="menu-item">QQ字体</a>
+                                    <a href="#" class="menu-item">毛笔字体</a>
+                                    <a href="#" class="menu-item">像素字体</a>
+                                </div>
+                            </div>
+                            <div class="menu-column">
+                                <div class="menu-category">
+                                    <h4 class="category-title">PS笔刷</h4>
+                                    <a href="#" class="menu-item">水墨笔刷</a>
+                                    <a href="#" class="menu-item">图案笔刷</a>
+                                    <a href="#" class="menu-item">动物笔刷</a>
+                                    <a href="#" class="menu-item">圣诞笔刷</a>
+                                    <a href="#" class="menu-item">特效笔刷</a>
+                                    <a href="#" class="menu-item">痕迹笔刷</a>
+                                </div>
+                                <div class="menu-category">
+                                    <h4 class="category-title">PSD素材</h4>
+                                    <a href="#" class="menu-item">PS动作</a>
+                                    <a href="#" class="menu-item">PS样式</a>
+                                    <a href="#" class="menu-item">PS滤镜</a>
+                                    <a href="#" class="menu-item">PS形状</a>
+                                    <a href="#" class="menu-item">其他</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="nav-link">AI生画Beta</a>
+            </nav>
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="请输入标题、关键词、作品编号搜索">
+                <button class="search-button">🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主内容区域 -->
+    <main class="main-container">
+        <div class="login-wrapper">
+            <div class="login-box">
+                <!-- 登录表单 -->
+                <div class="login-header">
+                    <h2 class="login-title">用户登录</h2>
+                </div>
+                
+                <div class="login-content">
+                    <form class="login-form">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="请输入用户名" required>
+                        </div>
+                        <div class="input-group">
+                            <input type="password" class="form-control" placeholder="请输入密码" required>
+                        </div>
+                        <div class="form-options">
+                            <label class="remember-me">
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                                12小时内自动登录
+                            </label>
+                            <div class="forgot-links">
+                                <a href="#" class="link">忘记密码</a>
+                                <span class="separator">|</span>
+                                <a href="#" class="link">找回用户名</a>
+                            </div>
+                        </div>
+                        <button type="submit" class="login-button">登录</button>
+                    </form>
+                    
+                    <div class="quick-login-section">
+                        <p class="quick-login-text">使用快捷登录 或 <a href="#" class="register-link">免费注册账户</a></p>
+                        <div class="quick-buttons">
+                            <button class="quick-btn wechat">微信</button>
+                            <button class="quick-btn qq">QQ</button>
+                            <button class="quick-btn alipay">支付宝</button>
+                            <button class="quick-btn huitu">汇图网</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 底部信息 -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#">关于昵图</a><span>|</span>
+                <a href="#">网站公约</a><span>|</span>
+                <a href="#">网站声明</a><span>|</span>
+                <a href="#">帮助中心</a><span>|</span>
+                <a href="#">联系我们</a><span>|</span>
+                <a href="#">常见问题</a><span>|</span>
+                <a href="#">网站地图</a>
+            </div>
+            
+            <div class="copyright-info">
+                <p>Copyright © 2025 NiPic.com All Rights Reserved 版权所有·昵图网 昵图网是网络服务平台方，若您的权利被侵害，请联系copyright@nipic.com 本站法律顾问：陈明律师</p>
+                <p>浙ICP备14012994号-1 增值电信业务经营许可证：浙B2-20140130 违法和不良信息举报电话：0571-89267010</p>
+            </div>
+
+            <div class="service-info">
+                <div class="service-hours">
+                    <p>工商</p>
+                    <p>周一至周五：08:30-21:30</p>
+                    <p>周六、周日：08:30-18:30</p>
+                    <p>浙公网安备 33011002011092号</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html> 
